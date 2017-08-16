@@ -4,6 +4,8 @@
 
 Displays total Mana Crystals Overloaded and/or Totems played.
 
+![Overload 12 and 16 Totems](screenshots/shamanic-12-16.png)
+
 Uses the 'Overlay Player->Show spell counter' option to determine display behaviour.
 
 - *Always* - Display Overload and Totems for all games (any class).
