@@ -24,5 +24,9 @@ namespace Shamanic
             Config.Instance.PlayerSpellsCounter == DisplayMode.Always
                 || (Config.Instance.PlayerSpellsCounter == DisplayMode.Auto && ThingFromBelowInDeck.HasValue && (PlayerThingFromBelow != null || ThingFromBelowInDeck.Value))
             );
+
+        public static bool ShowOpponentCounters => !Core.Game.IsInMenu &&
+            Config.Instance.OpponentSpellsCounter == DisplayMode.Always &&
+            Core.Game.Opponent.Class == "Shaman";
     }
 }
