@@ -17,13 +17,18 @@ namespace Shamanic
 
         public string Name => "Shamanic";
         public string Description => @"For use with the Shaman cards 'Thing from Below' and 'Snowfury Giant'.
-Displays total Mana Crystals Overloaded and/or Totems played.
+Displays player/opponent total Mana Crystals Overloaded and/or Totems played.
 
-Uses the 'Overlay Player->Show spell counter' option to determine display behaviour.
+Uses the Overlay spell counter options to determine display behaviour.
 
-Always - Display Overload and Totems for all games (any class).
-Auto - Display Overload for 'Snowfury Giant' and Totems for 'Thing from Below'.
-Never - Do not display.
+Overlay->Player->Show spell counter
+    Always - Display Overload and Totems for all games (any class).
+    Auto - Display Overload for 'Snowfury Giant' and Totems for 'Thing from Below'.
+    Never - Do not display.
+
+Overlay->Opponent->Show spell counter
+    Always - Display opponent Overload and Totems for all games vs Shaman.
+    Never - Do not display.
 
 **WARNING** Disabling the plugin during a game will reset the counters.";
         public string ButtonText => "Test Button Please Ignore";
