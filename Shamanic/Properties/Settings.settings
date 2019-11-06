@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Shamanic.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="OverloadCounterDisplay" Type="Hearthstone_Deck_Tracker.Enums.DisplayMode" Scope="User">
+      <Value Profile="(Default)">Auto</Value>
+    </Setting>
+    <Setting Name="TotemsCounterDisplay" Type="Hearthstone_Deck_Tracker.Enums.DisplayMode" Scope="User">
+      <Value Profile="(Default)">Auto</Value>
+    </Setting>
+    <Setting Name="OpponentCounterDisplay" Type="Hearthstone_Deck_Tracker.Enums.DisplayMode" Scope="User">
+      <Value Profile="(Default)">Never</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
