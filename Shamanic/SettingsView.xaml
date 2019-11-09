@@ -7,32 +7,36 @@
               xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
               xmlns:local="clr-namespace:Shamanic"
               xmlns:properties="clr-namespace:Shamanic.Properties"
-              xmlns:enums="clr-namespace:Hearthstone_Deck_Tracker.Enums;assembly=HearthstoneDeckTracker"
               xmlns:utility="clr-namespace:Hearthstone_Deck_Tracker.Utility;assembly=HearthstoneDeckTracker"
-              mc:Ignorable="d" 
-              d:DesignHeight="400" d:DesignWidth="400">
+              mc:Ignorable="d" VerticalScrollBarVisibility="Auto">
     <ScrollViewer.Resources>
-        <enums:EnumDescriptionConverter x:Key="EnumDescriptionConverter"/>
-        <Style x:Key="TitleStyle" TargetType="Label">
-            <Setter Property="FontSize" Value="18"/>
-            <Setter Property="FontWeight" Value="bold"/>
-            <Setter Property="Margin" Value="10,20,10,5"/>
-        </Style>
-        <Style x:Key="DescStyle" TargetType="Label">
-            <Setter Property="FontSize" Value="12"/>
-            <Setter Property="Margin" Value="10,0"/>
-        </Style>
-        <Style x:Key="DockPanelStyle" TargetType="DockPanel">
-            <Setter Property="Margin" Value="5,5,5,0"/>
-        </Style>
-        <Style x:Key="ComboBoxStyle" TargetType="ComboBox">
-            <Setter Property="Margin" Value="5,0,0,0"/>
-            <Setter Property="HorizontalAlignment" Value="Right"/>
-            <Setter Property="VerticalAlignment" Value="Top"/>
-            <Setter Property="Width" Value="150"/>
-        </Style>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <local:EnumDescriptionConverter x:Key="EnumDescriptionConverter"/>
+            <Style x:Key="TitleStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="FontWeight" Value="bold"/>
+                <Setter Property="Margin" Value="10,20,10,5"/>
+            </Style>
+            <Style x:Key="DescStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="Margin" Value="10,0"/>
+            </Style>
+            <Style x:Key="DockPanelStyle" TargetType="DockPanel">
+                <Setter Property="Margin" Value="5,5,5,0"/>
+            </Style>
+            <Style x:Key="ComboBoxStyle" TargetType="ComboBox" BasedOn="{StaticResource MetroComboBox}">
+                <Setter Property="Margin" Value="5,0,0,0"/>
+                <Setter Property="HorizontalAlignment" Value="Right"/>
+                <Setter Property="VerticalAlignment" Value="Top"/>
+                <Setter Property="Width" Value="150"/>
+            </Style>
+        </ResourceDictionary>
     </ScrollViewer.Resources>
-    <StackPanel Width="400">
+    <GroupBox Header="{x:Static properties:Resources.CounterTitle}">
+        <StackPanel Width="400">
         <Label Content="{x:Static properties:Resources.PlayerTitle}"
                Style="{StaticResource TitleStyle}"/>
         <DockPanel Style="{StaticResource DockPanelStyle}">
@@ -83,4 +87,5 @@
             </ComboBox>
         </DockPanel>
     </StackPanel>
+    </GroupBox>
 </ScrollViewer>

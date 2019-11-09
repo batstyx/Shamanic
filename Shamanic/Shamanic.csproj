@@ -68,12 +68,15 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DisplayMode.cs" />
     <Compile Include="Effect.cs" />
     <Compile Include="EffectTracker.cs" />
     <Compile Include="EffectView.xaml.cs">
       <DependentUpon>EffectView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="EnumDescriptionConverter.cs" />
     <Compile Include="Helper.cs" />
+    <Compile Include="LocalizedAttribute.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

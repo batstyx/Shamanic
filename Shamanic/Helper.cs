@@ -16,19 +16,28 @@ namespace Shamanic
 
         private static bool? DeckContains(string cardId) => DeckList.Instance.ActiveDeck?.Cards.Any(x => x.Id == cardId);
 
-        public static bool ShowOverloadCounter => !Core.Game.IsInMenu && (
+        private static bool CheckClass(string @class)
+        {
+            return @class == "Shaman" || @class == "Rogue" || @class == "Priest";
+        }
+
+        private static bool CheckCard(bool? card, Entity entity)
+        {
+            return card.HasValue && (entity != null || card.Value);
+        }
+
+        public static bool ShowOverloadCounter => 
             Settings.Default.OverloadCounterDisplay == DisplayMode.Always
-                || (Settings.Default.OverloadCounterDisplay == DisplayMode.Auto && SnowfuryGiantInDeck.HasValue && (PlayerSnowfuryGiant != null || SnowfuryGiantInDeck.Value))
-            );
+            || (Settings.Default.OverloadCounterDisplay == DisplayMode.Class && CheckClass(Core.Game.Player.Class))
+            || (Settings.Default.OverloadCounterDisplay == DisplayMode.Card && CheckCard(SnowfuryGiantInDeck, PlayerSnowfuryGiant));
 
-        public static bool ShowTotemsCounter => !Core.Game.IsInMenu && (
+        public static bool ShowTotemsCounter => 
             Settings.Default.TotemsCounterDisplay == DisplayMode.Always
-                || (Settings.Default.TotemsCounterDisplay == DisplayMode.Auto && ThingFromBelowInDeck.HasValue && (PlayerThingFromBelow != null || ThingFromBelowInDeck.Value))
-            );
+            || (Settings.Default.TotemsCounterDisplay == DisplayMode.Class && CheckClass(Core.Game.Player.Class))
+            || (Settings.Default.TotemsCounterDisplay == DisplayMode.Card && CheckCard(ThingFromBelowInDeck, PlayerThingFromBelow));
 
-        public static bool ShowOpponentCounters => !Core.Game.IsInMenu &&
-            Settings.Default.OpponentCountersDisplay == DisplayMode.Always ||
-            (Settings.Default.OpponentCountersDisplay == DisplayMode.Auto &&
-            Core.Game.Opponent.Class == "Shaman");
+        public static bool ShowOpponentCounters => 
+            Settings.Default.OpponentCountersDisplay == DisplayMode.Always 
+            || (Settings.Default.OpponentCountersDisplay == DisplayMode.Class && CheckClass(Core.Game.Opponent.Class));
     }
 }

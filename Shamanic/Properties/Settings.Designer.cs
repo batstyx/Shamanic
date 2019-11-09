@@ -25,10 +25,10 @@ namespace Shamanic.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Auto")]
-        public global::Hearthstone_Deck_Tracker.Enums.DisplayMode OverloadCounterDisplay {
+        [global::System.Configuration.DefaultSettingValueAttribute("Card")]
+        public global::Shamanic.DisplayMode OverloadCounterDisplay {
             get {
-                return ((global::Hearthstone_Deck_Tracker.Enums.DisplayMode)(this["OverloadCounterDisplay"]));
+                return ((global::Shamanic.DisplayMode)(this["OverloadCounterDisplay"]));
             }
             set {
                 this["OverloadCounterDisplay"] = value;
@@ -37,10 +37,10 @@ namespace Shamanic.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Auto")]
-        public global::Hearthstone_Deck_Tracker.Enums.DisplayMode TotemsCounterDisplay {
+        [global::System.Configuration.DefaultSettingValueAttribute("Card")]
+        public global::Shamanic.DisplayMode TotemsCounterDisplay {
             get {
-                return ((global::Hearthstone_Deck_Tracker.Enums.DisplayMode)(this["TotemsCounterDisplay"]));
+                return ((global::Shamanic.DisplayMode)(this["TotemsCounterDisplay"]));
             }
             set {
                 this["TotemsCounterDisplay"] = value;
@@ -50,9 +50,9 @@ namespace Shamanic.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Never")]
-        public global::Hearthstone_Deck_Tracker.Enums.DisplayMode OpponentCountersDisplay {
+        public global::Shamanic.DisplayMode OpponentCountersDisplay {
             get {
-                return ((global::Hearthstone_Deck_Tracker.Enums.DisplayMode)(this["OpponentCountersDisplay"]));
+                return ((global::Shamanic.DisplayMode)(this["OpponentCountersDisplay"]));
             }
             set {
                 this["OpponentCountersDisplay"] = value;

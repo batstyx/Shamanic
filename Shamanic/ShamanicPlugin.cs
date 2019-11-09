@@ -64,6 +64,8 @@ namespace Shamanic
         {
             if (!(_View.Visibility == Visibility.Visible || _OpponentView.Visibility == Visibility.Visible)) return;
 
+            if (CoreAPI.Game.IsInMenu) return;
+
             var showOverloadCounter = Helper.ShowOverloadCounter;
             var showTotemsCounter = Helper.ShowTotemsCounter;
             

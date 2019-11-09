@@ -61,7 +61,52 @@ namespace Shamanic.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Display Overload &amp; Totems Counters.
+        ///   Looks up a localized string similar to Counter Display.
+        /// </summary>
+        public static string CounterTitle {
+            get {
+                return ResourceManager.GetString("CounterTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Always.
+        /// </summary>
+        public static string DisplayModeAlways {
+            get {
+                return ResourceManager.GetString("DisplayModeAlways", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Card.
+        /// </summary>
+        public static string DisplayModeCard {
+            get {
+                return ResourceManager.GetString("DisplayModeCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Class.
+        /// </summary>
+        public static string DisplayModeClass {
+            get {
+                return ResourceManager.GetString("DisplayModeClass", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Never.
+        /// </summary>
+        public static string DisplayModeNever {
+            get {
+                return ResourceManager.GetString("DisplayModeNever", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Overload &amp; Totems.
         /// </summary>
         public static string OpponentDisplay {
             get {
@@ -79,8 +124,8 @@ namespace Shamanic.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Always - Display opponent Overload and Totems for all games.
-        ///Auto -  Display opponent Overload and Totems for all games vs Shaman.
+        ///   Looks up a localized string similar to Always - Display opponent Overload and Totems for all games vs any class.
+        ///Class -  Display opponent Overload and Totems for all games vs Shaman/Rogue/Priest.
         ///Never - Do not display..
         /// </summary>
         public static string OpponentTooltip {
@@ -99,7 +144,7 @@ namespace Shamanic.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Display Overload Counter.
+        ///   Looks up a localized string similar to Overload.
         /// </summary>
         public static string OverloadTitle {
             get {
@@ -108,8 +153,9 @@ namespace Shamanic.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Always - Display Overload for all games (any class).
-        ///Auto - Display Overload for &apos;Snowfury Giant&apos;.
+        ///   Looks up a localized string similar to Always - Display Overload for all games playing as any class.
+        ///Class - Display Overload when playing as Shaman/Rogue/Priest.
+        ///Card - Display Overload for &apos;Snowfury Giant&apos;.
         ///Never - Do not display..
         /// </summary>
         public static string OverloadTooltip {
@@ -168,7 +214,7 @@ namespace Shamanic.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Display Totems Counter.
+        ///   Looks up a localized string similar to Totems.
         /// </summary>
         public static string TotemsTitle {
             get {
@@ -177,8 +223,9 @@ namespace Shamanic.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Always - Display Totems for all games (any class).
-        ///Auto - Display Totems for &apos;Thing from Below&apos;.
+        ///   Looks up a localized string similar to Always - Display Totems for all games playing as any class.
+        ///Class - Display Totems when playing as Shaman/Rogue/Priest.
+        ///Card - Display Totems for &apos;Thing from Below&apos;.
         ///Never - Do not display..
         /// </summary>
         public static string TotemsTooltip {

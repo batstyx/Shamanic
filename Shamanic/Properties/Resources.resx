@@ -117,26 +117,42 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CounterTitle" xml:space="preserve">
+    <value>Counter Display</value>
+  </data>
+  <data name="DisplayModeAlways" xml:space="preserve">
+    <value>Always</value>
+  </data>
+  <data name="DisplayModeCard" xml:space="preserve">
+    <value>Card</value>
+  </data>
+  <data name="DisplayModeClass" xml:space="preserve">
+    <value>Class</value>
+  </data>
+  <data name="DisplayModeNever" xml:space="preserve">
+    <value>Never</value>
+  </data>
   <data name="OpponentDisplay" xml:space="preserve">
-    <value>Display Overload &amp; Totems Counters</value>
+    <value>Overload &amp; Totems</value>
   </data>
   <data name="OpponentTitle" xml:space="preserve">
     <value>Opponent</value>
   </data>
   <data name="OpponentTooltip" xml:space="preserve">
-    <value>Always - Display opponent Overload and Totems for all games.
-Auto -  Display opponent Overload and Totems for all games vs Shaman.
+    <value>Always - Display opponent Overload and Totems for all games vs any class.
+Class -  Display opponent Overload and Totems for all games vs Shaman/Rogue/Priest.
 Never - Do not display.</value>
   </data>
   <data name="OverloadEffectName" xml:space="preserve">
     <value>Overload</value>
   </data>
   <data name="OverloadTitle" xml:space="preserve">
-    <value>Display Overload Counter</value>
+    <value>Overload</value>
   </data>
   <data name="OverloadTooltip" xml:space="preserve">
-    <value>Always - Display Overload for all games (any class).
-Auto - Display Overload for 'Snowfury Giant'.
+    <value>Always - Display Overload for all games playing as any class.
+Class - Display Overload when playing as Shaman/Rogue/Priest.
+Card - Display Overload for 'Snowfury Giant'.
 Never - Do not display.</value>
   </data>
   <data name="PlayerTitle" xml:space="preserve">
@@ -159,11 +175,12 @@ Mainly for use with the Shaman cards 'Thing from Below' and 'Snowfury Giant'.
     <value>Totems</value>
   </data>
   <data name="TotemsTitle" xml:space="preserve">
-    <value>Display Totems Counter</value>
+    <value>Totems</value>
   </data>
   <data name="TotemsTooltip" xml:space="preserve">
-    <value>Always - Display Totems for all games (any class).
-Auto - Display Totems for 'Thing from Below'.
+    <value>Always - Display Totems for all games playing as any class.
+Class - Display Totems when playing as Shaman/Rogue/Priest.
+Card - Display Totems for 'Thing from Below'.
 Never - Do not display.</value>
   </data>
 </root>
