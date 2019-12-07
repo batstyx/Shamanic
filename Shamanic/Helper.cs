@@ -9,10 +9,10 @@ namespace Shamanic
     internal static class Helper
     {
         public static Entity PlayerSnowfuryGiant => Core.Game.Player.PlayerEntities.FirstOrDefault(x => x.CardId == HearthDb.CardIds.Collectible.Shaman.SnowfuryGiant && x.Info.OriginalZone != null);
-        public static Entity PlayerThingFromBelow => Core.Game.Player.PlayerEntities.FirstOrDefault(x => (x.CardId == HearthDb.CardIds.Collectible.Shaman.ThingFromBelowOG || x.CardId == HearthDb.CardIds.Collectible.Shaman.ThingFromBelowWILD_EVENT) && x.Info.OriginalZone != null);
+        public static Entity PlayerThingFromBelow => Core.Game.Player.PlayerEntities.FirstOrDefault(x => (x.CardId == HearthDb.CardIds.Collectible.Shaman.ThingFromBelow || x.CardId == HearthDb.CardIds.NonCollectible.Shaman.ThingFromBelow) && x.Info.OriginalZone != null);
 
         public static bool? SnowfuryGiantInDeck => DeckContains(HearthDb.CardIds.Collectible.Shaman.SnowfuryGiant);
-        public static bool? ThingFromBelowInDeck => DeckContains(HearthDb.CardIds.Collectible.Shaman.ThingFromBelowOG) | DeckContains(HearthDb.CardIds.Collectible.Shaman.ThingFromBelowWILD_EVENT);
+        public static bool? ThingFromBelowInDeck => DeckContains(HearthDb.CardIds.Collectible.Shaman.ThingFromBelow) | DeckContains(HearthDb.CardIds.NonCollectible.Shaman.ThingFromBelow);
 
         private static bool? DeckContains(string cardId) => DeckList.Instance.ActiveDeck?.Cards.Any(x => x.Id == cardId);
 
