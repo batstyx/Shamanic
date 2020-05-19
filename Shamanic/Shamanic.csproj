@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Shamanic</RootNamespace>
     <AssemblyName>Shamanic</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -49,6 +49,10 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="HearthDb, Version=16.0.0.37060, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\HearthDb.dll</HintPath>
+    </Reference>
     <Reference Include="HearthstoneDeckTracker">
       <HintPath>..\lib\HearthstoneDeckTracker.exe</HintPath>
     </Reference>
@@ -109,18 +113,13 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="MahApps.Metro">
-      <Version>1.5.0</Version>
+      <Version>1.6.5</Version>
     </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\HearthDb\HearthDb\HearthDb.csproj">
-      <Project>{7ed14243-e02b-4b94-af00-a67a62c282f0}</Project>
-      <Name>HearthDb</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\Settings.settings">

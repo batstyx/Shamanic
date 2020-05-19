@@ -345,6 +345,6 @@ MigrationBackup/
 
 .atom-build.yml
 
-HearthDb
+HearthDb*
 
 Thumbs.db
