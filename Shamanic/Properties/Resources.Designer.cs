@@ -106,6 +106,15 @@ namespace Shamanic.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Shaman.
+        /// </summary>
+        public static string DisplayModeShaman {
+            get {
+                return ResourceManager.GetString("DisplayModeShaman", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Overload &amp; Totems.
         /// </summary>
         public static string OpponentDisplay {
@@ -125,6 +134,7 @@ namespace Shamanic.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to Always - Display opponent Overload and Totems for all games vs any class.
+        ///Shaman -  Display opponent Overload and Totems for all games vs Shaman.
         ///Class -  Display opponent Overload and Totems for all games vs Shaman/Rogue/Priest.
         ///Never - Do not display..
         /// </summary>
@@ -154,6 +164,7 @@ namespace Shamanic.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to Always - Display Overload for all games playing as any class.
+        ///Shaman - Display Overload when playing as Shaman.
         ///Class - Display Overload when playing as Shaman/Rogue/Priest.
         ///Card - Display Overload for &apos;Snowfury Giant&apos;.
         ///Never - Do not display..
@@ -224,6 +235,7 @@ namespace Shamanic.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to Always - Display Totems for all games playing as any class.
+        ///Shaman - Display Totems when playing as Shaman.
         ///Class - Display Totems when playing as Shaman/Rogue/Priest.
         ///Card - Display Totems for &apos;Thing from Below&apos;.
         ///Never - Do not display..

@@ -8,6 +8,8 @@ namespace Shamanic
     {
         [Localized("DisplayModeAlways")]
         Always,
+        [Localized("DisplayModeShaman")]
+        Shaman,
         [Localized("DisplayModeClass")]
         Class,
         [Localized("DisplayModeCard")]

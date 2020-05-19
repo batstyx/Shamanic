@@ -132,6 +132,9 @@
   <data name="DisplayModeNever" xml:space="preserve">
     <value>Never</value>
   </data>
+  <data name="DisplayModeShaman" xml:space="preserve">
+    <value>Shaman</value>
+  </data>
   <data name="OpponentDisplay" xml:space="preserve">
     <value>Overload &amp; Totems</value>
   </data>
@@ -140,6 +143,7 @@
   </data>
   <data name="OpponentTooltip" xml:space="preserve">
     <value>Always - Display opponent Overload and Totems for all games vs any class.
+Shaman -  Display opponent Overload and Totems for all games vs Shaman.
 Class -  Display opponent Overload and Totems for all games vs Shaman/Rogue/Priest.
 Never - Do not display.</value>
   </data>
@@ -151,6 +155,7 @@ Never - Do not display.</value>
   </data>
   <data name="OverloadTooltip" xml:space="preserve">
     <value>Always - Display Overload for all games playing as any class.
+Shaman - Display Overload when playing as Shaman.
 Class - Display Overload when playing as Shaman/Rogue/Priest.
 Card - Display Overload for 'Snowfury Giant'.
 Never - Do not display.</value>
@@ -179,6 +184,7 @@ Mainly for use with the Shaman cards 'Thing from Below' and 'Snowfury Giant'.
   </data>
   <data name="TotemsTooltip" xml:space="preserve">
     <value>Always - Display Totems for all games playing as any class.
+Shaman - Display Totems when playing as Shaman.
 Class - Display Totems when playing as Shaman/Rogue/Priest.
 Card - Display Totems for 'Thing from Below'.
 Never - Do not display.</value>

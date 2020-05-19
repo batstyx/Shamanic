@@ -44,7 +44,7 @@ namespace Shamanic
 
         public IEnumerable<DisplayMode> TotemsCounterDisplayModes = DisplayModes;
         public IEnumerable<DisplayMode> OverloadCounterDisplayModes = DisplayModes;
-        public IEnumerable<DisplayMode> OpponentCounterDisplayModes = new[] { DisplayMode.Always, DisplayMode.Class, DisplayMode.Never };
+        public IEnumerable<DisplayMode> OpponentCounterDisplayModes = new[] { DisplayMode.Always, DisplayMode.Shaman, DisplayMode.Class, DisplayMode.Never };
 
         public SettingsView()
         {
