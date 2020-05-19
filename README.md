@@ -1,6 +1,6 @@
-[![Build Status](https://ci.appveyor.com/api/projects/status/github/batstyx/Shamanic?svg=true)](https://ci.appveyor.com/project/batstyx/Shamanic)
-
 [![Latest Release](https://img.shields.io/github/release/batstyx/Shamanic.svg)](https://github.com/batstyx/Shamanic/releases)
+
+[![Build Status](https://ci.appveyor.com/api/projects/status/github/batstyx/Shamanic?svg=true)](https://ci.appveyor.com/project/batstyx/Shamanic)
 
 # Shamanic
 
