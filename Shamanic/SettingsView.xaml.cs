@@ -14,19 +14,8 @@ namespace Shamanic
     /// </summary>
     public partial class SettingsView : ScrollViewer
     {
-        private static Flyout _flyout;
-        public static Flyout Flyout
-        {
-            get
-            {
-                if (_flyout == null)
-                {
-                    _flyout = CreateSettingsFlyout();
-                }
-                return _flyout;
-            }
-        }
-
+        private static Flyout _Flyout;
+        public static Flyout Flyout => _Flyout ?? (_Flyout = CreateSettingsFlyout());
         private static Flyout CreateSettingsFlyout()
         {
             var settings = new Flyout
@@ -57,14 +46,12 @@ namespace Shamanic
 
         private void ButtonResetPlayerPosition_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            Settings.Default.PlayerLeft = Settings.DefaultPlayerLeft;
-            Settings.Default.PlayerTop = Settings.DefaultPlayerTop;
+            Settings.Default.ResetPlayerPosition();
         }
 
         private void ButtonResetOpponentPosition_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            Settings.Default.OpponentLeft = Settings.DefaultOpponentLeft;
-            Settings.Default.OpponentTop = Settings.DefaultOpponentTop;
+            Settings.Default.ResetOpponentPosition();
         }
     }
 }
