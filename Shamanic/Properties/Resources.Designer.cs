@@ -22,7 +22,7 @@ namespace Shamanic.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    public class Resources {
+    internal class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Shamanic.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Resources.ResourceManager ResourceManager {
+        internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Shamanic.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace Shamanic.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        public static global::System.Globalization.CultureInfo Culture {
+        internal static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Shamanic.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Counter Display.
         /// </summary>
-        public static string CounterTitle {
+        internal static string CounterTitle {
             get {
                 return ResourceManager.GetString("CounterTitle", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace Shamanic.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Always.
         /// </summary>
-        public static string DisplayModeAlways {
+        internal static string DisplayModeAlways {
             get {
                 return ResourceManager.GetString("DisplayModeAlways", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace Shamanic.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Card.
         /// </summary>
-        public static string DisplayModeCard {
+        internal static string DisplayModeCard {
             get {
                 return ResourceManager.GetString("DisplayModeCard", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace Shamanic.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Class.
         /// </summary>
-        public static string DisplayModeClass {
+        internal static string DisplayModeClass {
             get {
                 return ResourceManager.GetString("DisplayModeClass", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace Shamanic.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Never.
         /// </summary>
-        public static string DisplayModeNever {
+        internal static string DisplayModeNever {
             get {
                 return ResourceManager.GetString("DisplayModeNever", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace Shamanic.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Shaman.
         /// </summary>
-        public static string DisplayModeShaman {
+        internal static string DisplayModeShaman {
             get {
                 return ResourceManager.GetString("DisplayModeShaman", resourceCulture);
             }
@@ -117,7 +117,7 @@ namespace Shamanic.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Overload &amp; Totems.
         /// </summary>
-        public static string OpponentDisplay {
+        internal static string OpponentDisplay {
             get {
                 return ResourceManager.GetString("OpponentDisplay", resourceCulture);
             }
@@ -126,7 +126,7 @@ namespace Shamanic.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Opponent.
         /// </summary>
-        public static string OpponentTitle {
+        internal static string OpponentTitle {
             get {
                 return ResourceManager.GetString("OpponentTitle", resourceCulture);
             }
@@ -138,7 +138,7 @@ namespace Shamanic.Properties {
         ///Class -  Display opponent Overload and Totems for all games vs Shaman/Rogue/Priest.
         ///Never - Do not display..
         /// </summary>
-        public static string OpponentTooltip {
+        internal static string OpponentTooltip {
             get {
                 return ResourceManager.GetString("OpponentTooltip", resourceCulture);
             }
@@ -147,7 +147,7 @@ namespace Shamanic.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Overload.
         /// </summary>
-        public static string OverloadEffectName {
+        internal static string OverloadEffectName {
             get {
                 return ResourceManager.GetString("OverloadEffectName", resourceCulture);
             }
@@ -156,7 +156,7 @@ namespace Shamanic.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Overload.
         /// </summary>
-        public static string OverloadTitle {
+        internal static string OverloadTitle {
             get {
                 return ResourceManager.GetString("OverloadTitle", resourceCulture);
             }
@@ -169,7 +169,7 @@ namespace Shamanic.Properties {
         ///Card - Display Overload for &apos;Snowfury Giant&apos;.
         ///Never - Do not display..
         /// </summary>
-        public static string OverloadTooltip {
+        internal static string OverloadTooltip {
             get {
                 return ResourceManager.GetString("OverloadTooltip", resourceCulture);
             }
@@ -178,7 +178,7 @@ namespace Shamanic.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Player.
         /// </summary>
-        public static string PlayerTitle {
+        internal static string PlayerTitle {
             get {
                 return ResourceManager.GetString("PlayerTitle", resourceCulture);
             }
@@ -187,7 +187,7 @@ namespace Shamanic.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Settings.
         /// </summary>
-        public static string PluginButtonText {
+        internal static string PluginButtonText {
             get {
                 return ResourceManager.GetString("PluginButtonText", resourceCulture);
             }
@@ -200,7 +200,7 @@ namespace Shamanic.Properties {
         ///
         ///**WARNING** Disabling the plugin during a game will reset the counters..
         /// </summary>
-        public static string PluginDescription {
+        internal static string PluginDescription {
             get {
                 return ResourceManager.GetString("PluginDescription", resourceCulture);
             }
@@ -209,7 +209,7 @@ namespace Shamanic.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Shamanic Settings.
         /// </summary>
-        public static string SettingsTitle {
+        internal static string SettingsTitle {
             get {
                 return ResourceManager.GetString("SettingsTitle", resourceCulture);
             }
@@ -218,7 +218,7 @@ namespace Shamanic.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Totems.
         /// </summary>
-        public static string TotemsEffectName {
+        internal static string TotemsEffectName {
             get {
                 return ResourceManager.GetString("TotemsEffectName", resourceCulture);
             }
@@ -227,7 +227,7 @@ namespace Shamanic.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Totems.
         /// </summary>
-        public static string TotemsTitle {
+        internal static string TotemsTitle {
             get {
                 return ResourceManager.GetString("TotemsTitle", resourceCulture);
             }
@@ -240,7 +240,7 @@ namespace Shamanic.Properties {
         ///Card - Display Totems for &apos;Thing from Below&apos;.
         ///Never - Do not display..
         /// </summary>
-        public static string TotemsTooltip {
+        internal static string TotemsTooltip {
             get {
                 return ResourceManager.GetString("TotemsTooltip", resourceCulture);
             }

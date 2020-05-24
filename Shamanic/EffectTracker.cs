@@ -6,8 +6,8 @@ namespace Shamanic
 {
     internal class EffectTracker
     {
-        public Effect Overload { get; } = new Effect(Resources.OverloadEffectName);
-        public Effect Totems { get; } = new Effect(Resources.TotemsEffectName);
+        public Effect Overload { get; } = new Effect(Strings.Get("OverloadEffectName"));
+        public Effect Totems { get; } = new Effect(Strings.Get("TotemsEffectName"));
 
         private bool IncrementOverload(Card card) => card.Overload > 0;
         private bool IncrementTotems(Card card) => card.Type == "Minion" && card.Race == "Totem" || card.Race == "All"; //TODO: Localise Card Type and Race?

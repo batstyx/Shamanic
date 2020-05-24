@@ -18,8 +18,8 @@ namespace Shamanic
         private EffectView _OpponentView;
 
         public string Name => AssemblyName.Name;
-        public string Description => Resources.PluginDescription;
-        public string ButtonText => Resources.PluginButtonText;
+        public string Description => Strings.Get("PluginDescription");
+        public string ButtonText => Strings.Get("PluginButtonText");
         public string Author => "batstyx";
 
         public static readonly AssemblyName AssemblyName = Assembly.GetExecutingAssembly().GetName();

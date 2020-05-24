@@ -8,6 +8,10 @@
               xmlns:local="clr-namespace:Shamanic"
               xmlns:properties="clr-namespace:Shamanic.Properties"
               xmlns:utility="clr-namespace:Hearthstone_Deck_Tracker.Utility;assembly=HearthstoneDeckTracker"
+              xmlns:lex="http://wpflocalizeextension.codeplex.com"
+              lex:LocalizeDictionary.DesignCulture="en"
+              lex:ResxLocalizationProvider.DefaultAssembly="Shamanic"
+              lex:ResxLocalizationProvider.DefaultDictionary="Resources"
               mc:Ignorable="d" VerticalScrollBarVisibility="Auto">
     <ScrollViewer.Resources>
         <ResourceDictionary>
@@ -35,18 +39,18 @@
             </Style>
         </ResourceDictionary>
     </ScrollViewer.Resources>
-    <GroupBox Header="{x:Static properties:Resources.CounterTitle}">
+    <GroupBox Header="{lex:Loc CounterTitle}">
         <StackPanel Width="400">
-        <Label Content="{x:Static properties:Resources.PlayerTitle}"
+        <Label Content="{lex:Loc PlayerTitle}"
                Style="{StaticResource TitleStyle}"/>
         <DockPanel Style="{StaticResource DockPanelStyle}">
-            <Label Content="{x:Static properties:Resources.OverloadTitle}" 
+            <Label Content="{lex:Loc OverloadTitle}" 
                    Style="{StaticResource DescStyle}"
-                   ToolTip="{x:Static properties:Resources.OverloadTooltip}"/>
+                   ToolTip="{lex:Loc OverloadTooltip}"/>
             <ComboBox x:Name="ComboBoxOverload"
                       Style="{StaticResource ComboBoxStyle}"
                       SelectedItem="{Binding OverloadCounterDisplay, Source={x:Static properties:Settings.Default}}"
-                      ToolTip="{x:Static properties:Resources.OverloadTooltip}">
+                      ToolTip="{lex:Loc OverloadTooltip}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding Path=., Converter={StaticResource EnumDescriptionConverter}}" />
@@ -55,13 +59,13 @@
             </ComboBox>
         </DockPanel>
         <DockPanel Style="{StaticResource DockPanelStyle}">
-            <Label Content="{x:Static properties:Resources.TotemsTitle}"
+            <Label Content="{lex:Loc TotemsTitle}"
                    Style="{StaticResource DescStyle}"
-                   ToolTip="{x:Static properties:Resources.TotemsTooltip}"/>
+                   ToolTip="{lex:Loc TotemsTooltip}"/>
             <ComboBox x:Name="ComboBoxTotems"
                       Style="{StaticResource ComboBoxStyle}"
                       SelectedItem="{Binding TotemsCounterDisplay, Source={x:Static properties:Settings.Default}}"
-                      ToolTip="{x:Static properties:Resources.TotemsTooltip}">
+                      ToolTip="{lex:Loc TotemsTooltip}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding Path=., Converter={StaticResource EnumDescriptionConverter}}" />
@@ -69,16 +73,16 @@
                 </ComboBox.ItemTemplate>
             </ComboBox>
         </DockPanel>
-        <Label Content="{x:Static properties:Resources.OpponentTitle}"
+        <Label Content="{lex:Loc OpponentTitle}"
                Style="{StaticResource TitleStyle}"/>
         <DockPanel Style="{StaticResource DockPanelStyle}">
-            <Label Content="{x:Static properties:Resources.OpponentDisplay}" 
+            <Label Content="{lex:Loc OpponentDisplay}" 
                    Style="{StaticResource DescStyle}"
-                   ToolTip="{x:Static properties:Resources.OpponentTooltip}"/>
+                   ToolTip="{lex:Loc OpponentTooltip}"/>
             <ComboBox x:Name="ComboBoxOpponent"
                       Style="{StaticResource ComboBoxStyle}"
                       SelectedItem="{Binding OpponentCountersDisplay, Source={x:Static properties:Settings.Default}}"
-                      ToolTip="{x:Static properties:Resources.OpponentTooltip}">
+                      ToolTip="{lex:Loc OpponentTooltip}">
                 <ComboBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding Path=., Converter={StaticResource EnumDescriptionConverter}}" />

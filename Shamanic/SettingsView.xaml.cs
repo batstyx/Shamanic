@@ -32,7 +32,7 @@ namespace Shamanic
             var settings = new Flyout
             {
                 Position = Position.Left,
-                Header = Properties.Resources.SettingsTitle,
+                Header = Strings.Get("SettingsTitle"),
                 Content = new SettingsView()
             };
             Panel.SetZIndex(settings, 100);
