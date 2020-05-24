@@ -207,11 +207,65 @@ namespace Shamanic.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Horizontal.
+        /// </summary>
+        internal static string SettingsHorizontal {
+            get {
+                return ResourceManager.GetString("SettingsHorizontal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to % Screen Position (Left &lt;-&gt; Right).
+        /// </summary>
+        internal static string SettingsHorizontalTooltip {
+            get {
+                return ResourceManager.GetString("SettingsHorizontalTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset to Default.
+        /// </summary>
+        internal static string SettingsPositionResetButton {
+            get {
+                return ResourceManager.GetString("SettingsPositionResetButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Position.
+        /// </summary>
+        internal static string SettingsPositionTitle {
+            get {
+                return ResourceManager.GetString("SettingsPositionTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Shamanic Settings.
         /// </summary>
         internal static string SettingsTitle {
             get {
                 return ResourceManager.GetString("SettingsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vertical.
+        /// </summary>
+        internal static string SettingsVertical {
+            get {
+                return ResourceManager.GetString("SettingsVertical", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to % Screen Position (Top &lt;-&gt; Bottom).
+        /// </summary>
+        internal static string SettingsVerticalTooltip {
+            get {
+                return ResourceManager.GetString("SettingsVerticalTooltip", resourceCulture);
             }
         }
         

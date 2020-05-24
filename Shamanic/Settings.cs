@@ -22,9 +22,16 @@ namespace Shamanic.Properties
 
     public sealed partial class Settings
     {
+        public const int DefaultPlayerLeft = 82;
+        public const int DefaultPlayerTop = 76;
+        public const int DefaultOpponentLeft = 82;
+        public const int DefaultOpponentTop = 10;
+
         private const string Filename = "Shamanic.xml";
         internal static string DataDir => Config.Instance.DataDir;
         private static string SettingsPath => Path.Combine(DataDir, Filename);
+
+        public bool HasChanges { get; private set; }
 
         public Settings()
         {
@@ -32,8 +39,10 @@ namespace Shamanic.Properties
 
             SettingsLoaded += SettingsLoadedEventHandler;
             SettingsSaving += SettingsSavingEventHandler;
+
+            PropertyChanged += (sender, e) => HasChanges = true;
         }
-                
+
         private void SettingsLoadedEventHandler(object sender, System.Configuration.SettingsLoadedEventArgs e)
         {
             try

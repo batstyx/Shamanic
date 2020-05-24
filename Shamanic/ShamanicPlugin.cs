@@ -64,24 +64,24 @@ namespace Shamanic
         {
             if (!(_View.Visibility == Visibility.Visible || _OpponentView.Visibility == Visibility.Visible)) return;
 
-            if (CoreAPI.Game.IsInMenu) return;
+            if (CoreAPI.Game.IsInMenu & Config.Instance.HideInMenu) return;
 
             var showOverloadCounter = Helper.ShowOverloadCounter;
             var showTotemsCounter = Helper.ShowTotemsCounter;
             
-            _View.SetLocation(76, 18);
+            _View.SetLocation(Settings.Default.PlayerTop, 100 - Settings.Default.PlayerLeft);
             _View.CounterStyle = showOverloadCounter && showTotemsCounter ? CounterStyles.Full : (showOverloadCounter ? CounterStyles.Overload : (showTotemsCounter ? CounterStyles.Totems : CounterStyles.None));
 
             var showOpponentCounters = Helper.ShowOpponentCounters;
 
-            _OpponentView.SetLocation(10, 18);
+            _OpponentView.SetLocation(Settings.Default.OpponentTop, 100 - Settings.Default.OpponentLeft);
             _OpponentView.CounterStyle = showOpponentCounters ? CounterStyles.Full : CounterStyles.None;
         }
 
         public void OnUnload()
         {
             Debug.WriteLine("Shamanic IPlugin.OnUnload");
-            Settings.Default.Save();
+            if (Settings.Default.HasChanges) Settings.Default.Save();
 
             CoreAPI.OverlayCanvas.Children.Remove(_OpponentView);
             CoreAPI.OverlayCanvas.Children.Remove(_View);            
@@ -97,12 +97,8 @@ namespace Shamanic
         internal void InMenu()
         {
             Debug.WriteLine("Shamanic InMenu");
-            if (Config.Instance.HideInMenu)
-            {
-                _View.Visibility = Visibility.Hidden;
-                _OpponentView.Visibility = Visibility.Hidden;
-            }
+            _View.Visibility = Config.Instance.HideInMenu ? Visibility.Hidden : Visibility.Visible;
+            _OpponentView.Visibility = Config.Instance.HideInMenu ? Visibility.Hidden : Visibility.Visible;
         }
-
     }
 }

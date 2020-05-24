@@ -11,5 +11,23 @@
     <Setting Name="OpponentCountersDisplay" Type="Shamanic.DisplayMode" Scope="User">
       <Value Profile="(Default)">Never</Value>
     </Setting>
+    <Setting Name="PlayerLeft" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">82</Value>
+    </Setting>
+    <Setting Name="PlayerTop" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">76</Value>
+    </Setting>
+    <Setting Name="OpponentLeft" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">82</Value>
+    </Setting>
+    <Setting Name="OpponentTop" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">10</Value>
+    </Setting>
+    <Setting Name="MinLeft" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">8</Value>
+    </Setting>
+    <Setting Name="MaxTop" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">94</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -173,8 +173,26 @@ Mainly for use with the Shaman cards 'Thing from Below' and 'Snowfury Giant'.
 
 **WARNING** Disabling the plugin during a game will reset the counters.</value>
   </data>
+  <data name="SettingsHorizontal" xml:space="preserve">
+    <value>Horizontal</value>
+  </data>
+  <data name="SettingsHorizontalTooltip" xml:space="preserve">
+    <value>% Screen Position (Left &lt;-&gt; Right)</value>
+  </data>
+  <data name="SettingsPositionResetButton" xml:space="preserve">
+    <value>Reset to Default</value>
+  </data>
+  <data name="SettingsPositionTitle" xml:space="preserve">
+    <value>Position</value>
+  </data>
   <data name="SettingsTitle" xml:space="preserve">
     <value>Shamanic Settings</value>
+  </data>
+  <data name="SettingsVertical" xml:space="preserve">
+    <value>Vertical</value>
+  </data>
+  <data name="SettingsVerticalTooltip" xml:space="preserve">
+    <value>% Screen Position (Top &lt;-&gt; Bottom)</value>
   </data>
   <data name="TotemsEffectName" xml:space="preserve">
     <value>Totems</value>

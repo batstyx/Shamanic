@@ -53,10 +53,18 @@ namespace Shamanic
             ComboBoxTotems.ItemsSource = TotemsCounterDisplayModes;
             ComboBoxOverload.ItemsSource = OverloadCounterDisplayModes;
             ComboBoxOpponent.ItemsSource = OpponentCounterDisplayModes;
+        }
 
-            Settings.Default.PropertyChanged += (sender, e) => {
-                Settings.Default.Save();
-                };
+        private void ButtonResetPlayerPosition_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            Settings.Default.PlayerLeft = Settings.DefaultPlayerLeft;
+            Settings.Default.PlayerTop = Settings.DefaultPlayerTop;
+        }
+
+        private void ButtonResetOpponentPosition_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            Settings.Default.OpponentLeft = Settings.DefaultOpponentLeft;
+            Settings.Default.OpponentTop = Settings.DefaultOpponentTop;
         }
     }
 }
