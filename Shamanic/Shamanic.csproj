@@ -80,6 +80,7 @@
     </Compile>
     <Compile Include="EnumDescriptionConverter.cs" />
     <Compile Include="Helper.cs" />
+    <Compile Include="LibraryInfo.cs" />
     <Compile Include="LocalizedAttribute.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

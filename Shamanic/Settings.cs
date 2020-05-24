@@ -38,7 +38,7 @@ namespace Shamanic.Properties
             OpponentTop = DefaultOpponentTop;
         }
 
-        private const string Filename = "Shamanic.xml";
+        private static readonly string Filename = Path.ChangeExtension(LibraryInfo.Name, ".xml");
         internal static string DataDir => Config.Instance.DataDir;
         private static string SettingsPath => Path.Combine(DataDir, Filename);
 

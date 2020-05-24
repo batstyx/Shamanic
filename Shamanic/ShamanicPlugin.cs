@@ -17,15 +17,11 @@ namespace Shamanic
         private EffectView _View;
         private EffectView _OpponentView;
 
-        public string Name => AssemblyName.Name;
+        public string Name => LibraryInfo.Name;
         public string Description => Strings.Get("PluginDescription");
         public string ButtonText => Strings.Get("PluginButtonText");
         public string Author => "batstyx";
-
-        public static readonly AssemblyName AssemblyName = Assembly.GetExecutingAssembly().GetName();
-        public static readonly Version AssemblyVersion = AssemblyName.Version;
-        public static readonly Version PluginVersion = new Version(AssemblyVersion.Major, AssemblyVersion.Minor, AssemblyVersion.Build);
-        public Version Version => PluginVersion;
+        public Version Version => LibraryInfo.Version;
         public MenuItem MenuItem => null;
 
         public void OnButtonPress() => SettingsView.Flyout.IsOpen = true;
@@ -33,31 +29,49 @@ namespace Shamanic
         public void OnLoad()
         {
             Debug.WriteLine("Shamanic IPlugin.OnLoad");
-
-            _View = new EffectView();
-            CoreAPI.OverlayCanvas.Children.Add(_View);
             
-            EffectTracker tracker = new EffectTracker();
-            _View.OverloadEffect = tracker.Overload;
-            _View.TotemEffect = tracker.Totems;
-            
-            GameEvents.OnGameStart.Add(tracker.GameStart);            
-            GameEvents.OnPlayerPlay.Add(tracker.Play);
-            GameEvents.OnPlayerCreateInPlay.Add(tracker.CreateInPlay);
+            _View = CreateView();
+            CreateTracker(_View);
 
-            _OpponentView = new EffectView();
-            CoreAPI.OverlayCanvas.Children.Add(_OpponentView);
-
-            EffectTracker opponentTracker = new EffectTracker();
-            _OpponentView.OverloadEffect = opponentTracker.Overload;
-            _OpponentView.TotemEffect = opponentTracker.Totems;
-
-            GameEvents.OnGameStart.Add(opponentTracker.GameStart);
-            GameEvents.OnOpponentPlay.Add(opponentTracker.Play);
-            GameEvents.OnOpponentCreateInPlay.Add(opponentTracker.CreateInPlay);
+            _OpponentView = CreateView();
+            CreateTracker(_OpponentView, false);
 
             GameEvents.OnGameStart.Add(this.GameStart);
             GameEvents.OnInMenu.Add(this.InMenu);
+        }
+
+        private EffectView CreateView()
+        {
+            var view = new EffectView();
+            CoreAPI.OverlayCanvas.Children.Add(view);
+            return view;
+        }
+
+        private static void TrackOpponent(EffectTracker tracker)
+        {
+            GameEvents.OnOpponentPlay.Add(tracker.Play);
+            GameEvents.OnOpponentCreateInPlay.Add(tracker.CreateInPlay);
+        }
+
+        private static void TrackPlayer(EffectTracker tracker)
+        {
+            GameEvents.OnPlayerPlay.Add(tracker.Play);
+            GameEvents.OnPlayerCreateInPlay.Add(tracker.CreateInPlay);
+        }
+
+        private EffectTracker CreateTracker(EffectView view, bool trackPlayer = true)
+        {
+            var tracker = new EffectTracker();
+            view.OverloadEffect = tracker.Overload;
+            view.TotemEffect = tracker.Totems;
+            
+            GameEvents.OnGameStart.Add(tracker.GameStart);
+            if (trackPlayer)
+                TrackPlayer(tracker);
+            else
+                TrackOpponent(tracker);
+
+            return tracker;
         }
 
         public void OnUpdate()
