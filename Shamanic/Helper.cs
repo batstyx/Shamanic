@@ -37,7 +37,7 @@ namespace Shamanic
 
         public static bool ShowOpponentCounters => 
             Settings.Default.OpponentCountersDisplay == DisplayMode.Always
-            || (Settings.Default.OpponentCountersDisplay == DisplayMode.Shaman && CheckShaman(Core.Game.Player.Class))
+            || (Settings.Default.OpponentCountersDisplay == DisplayMode.Shaman && CheckShaman(Core.Game.Opponent.Class))
             || (Settings.Default.OpponentCountersDisplay == DisplayMode.Class && CheckClass(Core.Game.Opponent.Class));
     }
 }
