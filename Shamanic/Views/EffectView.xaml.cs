@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace Shamanic
+namespace Shamanic.Views
 {
     public partial class EffectView : UserControl, INotifyPropertyChanged
     {

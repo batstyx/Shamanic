@@ -2,12 +2,12 @@
 using Hearthstone_Deck_Tracker.API;
 using Hearthstone_Deck_Tracker.Plugins;
 using Shamanic.Properties;
+using Shamanic.Views;
 using System;
 using System.Diagnostics;
-using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
-using static Shamanic.EffectView;
+using static Shamanic.Views.EffectView;
 using CoreAPI = Hearthstone_Deck_Tracker.API.Core;
 
 namespace Shamanic

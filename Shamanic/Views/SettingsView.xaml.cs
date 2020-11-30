@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Controls;
 
-namespace Shamanic
+namespace Shamanic.Views
 {
     /// <summary>
     /// Interaction logic for SettingsView.xaml

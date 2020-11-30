@@ -75,12 +75,12 @@
     <Compile Include="DisplayMode.cs" />
     <Compile Include="Effect.cs" />
     <Compile Include="EffectTracker.cs" />
-    <Compile Include="EffectView.xaml.cs">
+    <Compile Include="Views\EffectView.xaml.cs">
       <DependentUpon>EffectView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="EnumDescriptionConverter.cs" />
+    <Compile Include="Views\Converters\EnumDescriptionConverter.cs" />
     <Compile Include="Helper.cs" />
-    <Compile Include="LibraryInfo.cs" />
+    <Compile Include="Properties\LibraryInfo.cs" />
     <Compile Include="LocalizedAttribute.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -92,21 +92,21 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Settings.cs" />
-    <Compile Include="SettingsView.xaml.cs">
+    <Compile Include="Properties\Settings.cs" />
+    <Compile Include="Views\SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="ShamanicPlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Strings.cs" />
-    <Compile Include="ToUpperValueConverter.cs" />
+    <Compile Include="Properties\Strings.cs" />
+    <Compile Include="Views\Converters\ToUpperValueConverter.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="EffectView.xaml">
+    <Page Include="Views\EffectView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SettingsView.xaml">
+    <Page Include="Views\SettingsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

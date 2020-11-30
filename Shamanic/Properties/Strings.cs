@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WPFLocalizeExtension.Engine;
+﻿using WPFLocalizeExtension.Engine;
 
-namespace Shamanic
+namespace Shamanic.Properties
 {
     public class Strings
     {
