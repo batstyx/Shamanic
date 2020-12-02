@@ -1,5 +1,7 @@
 ﻿using Hearthstone_Deck_Tracker.Hearthstone;
+using Hearthstone_Deck_Tracker.Utility.Logging;
 using Shamanic.Properties;
+using System;
 using System.Diagnostics;
 
 namespace Shamanic
@@ -14,28 +16,50 @@ namespace Shamanic
 
         internal void GameStart()
         {
-            Debug.WriteLine("Shamanic GameStart");
-            Overload.Reset();
-            Totems.Reset();
+            try
+            {
+                Log.Info("Shamanic GameStart");
+                Overload.Reset();
+                Totems.Reset();
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
+            
         }
 
         internal void Play(Card card)
         {
-            Debug.WriteLine("Shamanic Play Card: {0}+{1}+{2}", card.Type, card.Race, card.Overload);
+            try
+            {
+                Log.Info($"Shamanic Play Card: {card.Type}+{card.Race}+{card.Overload}");
 
-            if (IncrementTotems(card))
-                Totems.Increment();
+                if (IncrementTotems(card))
+                    Totems.Increment();
 
-            if (IncrementOverload(card))
-                Overload.Increment(card.Overload);
+                if (IncrementOverload(card))
+                    Overload.Increment(card.Overload);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
         }
 
         internal void CreateInPlay(Card card)
         {
-            Debug.WriteLine("Shamanic CreateInPlay Card: {0}+{1}+{2}", card.Type, card.Race, card.Overload);
+            try
+            {
+                Log.Info($"Shamanic CreateInPlay Card: {card.Type}+{card.Race}+{card.Overload}");
 
-            if (IncrementTotems(card))
-                Totems.Increment();
+                if (IncrementTotems(card))
+                    Totems.Increment();
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+            }
         }
     }
 
