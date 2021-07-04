@@ -10,10 +10,10 @@ namespace Shamanic
     internal static class Helper
     {
         public static Entity PlayerSnowfuryGiant => Core.Game.Player.PlayerEntities.FirstOrDefault(x => x.CardId == Collectible.Shaman.SnowfuryGiant && x.Info.OriginalZone != null);
-        public static Entity PlayerThingFromBelow => Core.Game.Player.PlayerEntities.FirstOrDefault(x => (x.CardId == Collectible.Shaman.ThingFromBelow || x.CardId == NonCollectible.Shaman.ThingFromBelow) && x.Info.OriginalZone != null);
+        public static Entity PlayerThingFromBelow => Core.Game.Player.PlayerEntities.FirstOrDefault(x => (x.CardId == Collectible.Shaman.ThingFromBelow) && x.Info.OriginalZone != null);
 
         public static bool? SnowfuryGiantInDeck => DeckContains(Collectible.Shaman.SnowfuryGiant);
-        public static bool? ThingFromBelowInDeck => DeckContains(Collectible.Shaman.ThingFromBelow) | DeckContains(NonCollectible.Shaman.ThingFromBelow);
+        public static bool? ThingFromBelowInDeck => DeckContains(Collectible.Shaman.ThingFromBelow);
 
         private static bool? DeckContains(string cardId) => DeckList.Instance.ActiveDeck?.Cards.Any(x => x.Id == cardId);
 
