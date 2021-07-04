@@ -1,7 +1,5 @@
 [![Latest Release](https://img.shields.io/github/release/batstyx/Shamanic.svg)](https://github.com/batstyx/Shamanic/releases)
 
-[![Build Status](https://ci.appveyor.com/api/projects/status/github/batstyx/Shamanic?svg=true)](https://ci.appveyor.com/project/batstyx/Shamanic)
-
 # Shamanic
 
 [Hearthstone Deck Tracker](https://hsdecktracker.net/) plugin for use with the Shaman cards [Thing from Below](http://www.hearthpwn.com/cards/33159-thing-from-below) and [Snowfury Giant](http://www.hearthpwn.com/cards/62918-snowfury-giant).
