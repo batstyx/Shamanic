@@ -1,4 +1,4 @@
-﻿mkdir -Force $PSScriptRoot\lib | Out-Null
+﻿mkdir -Force lib | Out-Null
 
 "Looking for Hearthstone Deck Tracker install..."
 $HDTPath = "$Env:LOCALAPPDATA\HearthstoneDeckTracker"
