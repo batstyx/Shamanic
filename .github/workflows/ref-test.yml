@@ -1,9 +1,6 @@
 on:
   release:
-    types: [Published,Unpublished]
-  push:
-    tags:
-    - 'v*'
+    types: [created]
    
 jobs:
   build-and-release:
