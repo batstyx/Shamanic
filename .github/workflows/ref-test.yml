@@ -1,0 +1,11 @@
+on:
+  push:
+    tags:
+    - 'v*'
+   
+jobs:
+  build-and-release:
+    runs-on: windows-latest
+    
+    steps:
+      - run: echo $Env:GITHUB_REF
