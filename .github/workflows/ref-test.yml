@@ -1,4 +1,6 @@
 on:
+  release:
+    types: [Created]
   push:
     tags:
     - 'v*'
