@@ -8,6 +8,8 @@ jobs:
     runs-on: windows-latest
     
     steps:
+      - id: tag_version
+        uses: battila7/get-version-action@v2
       - uses: actions/checkout@v2
       - uses: microsoft/setup-msbuild@v1
       - uses: NuGet/setup-nuget@v1.0.5 
@@ -26,7 +28,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: ${{ github.ref }}
-          draft: true
+          draft: false
           prerelease: false
       - uses: actions/upload-release-asset@v1
         env:
@@ -34,6 +36,6 @@ jobs:
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./Shamanic.zip
-          asset_name: Shamanic-${{ steps.set_version.outputs.buildVersion }}.zip
+          asset_name: Shamanic-${{ steps.tag_version.outputs.version }}.zip
           asset_content_type: application/zip
           
