@@ -1,0 +1,23 @@
+on:
+  workflow_dispatch:
+
+jobs:
+  build-and-upload:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: microsoft/setup-msbuild@v1
+      - uses: NuGet/setup-nuget@v1.0.5 
+      - run: .\scripts\update-libraries.ps1
+      - run: nuget restore "Shamanic.sln"
+      - id: set_version
+        run: |
+          $build = 50 + $Env:GITHUB_RUN_NUMBER
+          $buildVersion = .\scripts\assembly-version.ps1 -project "Shamanic" -build $build -overrideVersion ${{ github.ref }}
+          echo "::set-output name=buildVersion::$buildVersion"
+      - run: msbuild.exe "Shamanic.sln" /p:platform="x86" /p:configuration="Release"
+      - run: 7z a Shamanic.zip .\Shamanic\bin\x86\Release\Shamanic.dll .\Shamanic\bin\x86\Release\*-*
+      - uses: actions/upload-artifact@v2.2.3
+        with:
+          name: Shamanic-${{ steps.set_version.outputs.buildVersion }}.zip
+          paths: Shamanic.zip
