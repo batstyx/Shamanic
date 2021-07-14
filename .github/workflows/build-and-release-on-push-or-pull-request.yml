@@ -1,8 +1,11 @@
 on:
-  workflow_dispatch:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
 
 jobs:
-  build-and-upload:
+  build-and-release:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
@@ -17,7 +20,20 @@ jobs:
           echo "::set-output name=buildVersion::$buildVersion"
       - run: msbuild.exe "Shamanic.sln" /p:platform="x86" /p:configuration="Release"
       - run: 7z a Shamanic.zip .\Shamanic\bin\x86\Release\Shamanic.dll .\Shamanic\bin\x86\Release\*-*
-      - uses: actions/upload-artifact@v2.2.3
+      - uses: actions/create-release@v1
+        id: create_release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          name: Shamanic-v${{ steps.set_version.outputs.buildVersion }}.zip
-          path: Shamanic.zip
+          tag_name: v${{ steps.set_version.outputs.buildVersion }}
+          draft: false
+          prerelease: false
+      - uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./Shamanic.zip
+          asset_name: Shamanic-v${{ steps.set_version.outputs.buildVersion }}.zip
+          asset_content_type: application/zip
+      
