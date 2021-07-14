@@ -21,4 +21,4 @@ jobs:
       - uses: actions/upload-artifact@v2.2.3
         with:
           name: Shamanic-v${{ steps.set_version.outputs.buildVersion }}.zip
-          paths: .\Shamanic.zip
+          path: Shamanic.zip
