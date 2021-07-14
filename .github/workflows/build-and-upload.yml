@@ -17,7 +17,8 @@ jobs:
           echo "::set-output name=buildVersion::$buildVersion"
       - run: msbuild.exe "Shamanic.sln" /p:platform="x86" /p:configuration="Release"
       - run: 7z a Shamanic.zip .\Shamanic\bin\x86\Release\Shamanic.dll .\Shamanic\bin\x86\Release\*-*
+#      - run: cd $GITHUB_WORKSPACE
       - uses: actions/upload-artifact@v2.2.3
         with:
-          name: Shamanic-${{ steps.set_version.outputs.buildVersion }}.zip
-          paths: Shamanic.zip
+          name: Shamanic-v${{ steps.set_version.outputs.buildVersion }}.zip
+          paths: .\Shamanic.zip
