@@ -1,3 +1,4 @@
+name: Build+Release on Push/Pull
 on:
   push:
     branches: [ master ]
