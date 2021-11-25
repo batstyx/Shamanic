@@ -20,5 +20,5 @@ jobs:
 #      - run: 7z a Shamanic.zip .\Shamanic\bin\x86\Release\Shamanic.dll .\Shamanic\bin\x86\Release\*-*
       - uses: actions/upload-artifact@v2.2.3
         with:
-          name: Shamanic-v${{ steps.set_version.outputs.buildVersion }}.zip
+          name: Shamanic-v${{ steps.set_version.outputs.buildVersion }}
           path: .\Shamanic\bin\x86\Release\Shamanic.dll
