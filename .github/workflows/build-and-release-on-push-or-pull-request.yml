@@ -1,5 +1,7 @@
-name: Build+Release on PR
+name: Build+Release on Push/PR
 on:
+  push:
+    branches: [ master ]
   pull_request:
     branches: [ master ]
   workflow_dispatch:
@@ -20,10 +22,6 @@ jobs:
           echo "::set-output name=buildVersion::$buildVersion"
       - run: msbuild.exe "Shamanic.sln" /p:platform="x86" /p:configuration="Release"
       - run: 7z a Shamanic.zip .\Shamanic\bin\x86\Release\Shamanic.dll .\Shamanic\bin\x86\Release\*-*
-      - uses: actions/upload-artifact@v2.2.3
-        with:
-          name: Shamanic-v${{ steps.set_version.outputs.buildVersion }}.zip
-          path: Shamanic.zip
       - uses: actions/create-release@v1
         id: create_release
         env:
