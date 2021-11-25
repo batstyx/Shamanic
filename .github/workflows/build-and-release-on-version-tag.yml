@@ -1,3 +1,4 @@
+name: Build+Release on Version Tag
 on:
   push:
     tags:
