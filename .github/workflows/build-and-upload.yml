@@ -17,8 +17,8 @@ jobs:
           $buildVersion = .\scripts\assembly-version.ps1 -project "Shamanic" -build $build -overrideVersion ${{ github.ref }}
           echo "::set-output name=buildVersion::$buildVersion"
       - run: msbuild.exe "Shamanic.sln" /p:platform="x86" /p:configuration="Release"
-      - run: 7z a Shamanic.zip .\Shamanic\bin\x86\Release\Shamanic.dll .\Shamanic\bin\x86\Release\*-*
+#      - run: 7z a Shamanic.zip .\Shamanic\bin\x86\Release\Shamanic.dll .\Shamanic\bin\x86\Release\*-*
       - uses: actions/upload-artifact@v2.2.3
         with:
-          name: Shamanic-v${{ steps.set_version.outputs.buildVersion }}.zip
-          path: Shamanic.zip
+          name: Shamanic-v${{ steps.set_version.outputs.buildVersion }}
+          path: .\Shamanic\bin\x86\Release\Shamanic.dll
