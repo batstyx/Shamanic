@@ -1,3 +1,4 @@
+name: Build+Upload
 on:
   workflow_dispatch:
 
