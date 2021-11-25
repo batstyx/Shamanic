@@ -1,7 +1,5 @@
-name: Build+Release on Push/Pull
+name: Build & Release on Pull Request
 on:
-  push:
-    branches: [ master ]
   pull_request:
     branches: [ master ]
   workflow_dispatch:
