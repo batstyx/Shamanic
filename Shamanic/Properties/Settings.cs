@@ -50,14 +50,14 @@ namespace Shamanic.Properties
 
             SettingsLoaded += SettingsLoadedEventHandler;
             SettingsSaving += SettingsSavingEventHandler;
-
-            PropertyChanged += (sender, e) => HasChanges = true;
         }
 
         private void SettingsLoadedEventHandler(object sender, System.Configuration.SettingsLoadedEventArgs e)
         {
             try
             {
+                Log.Debug($"Loading {SettingsPath}");
+
                 if (File.Exists(SettingsPath))
                 {
                     var actual = XmlManager<List<Setting>>.Load(SettingsPath);
@@ -69,7 +69,15 @@ namespace Shamanic.Properties
                         else
                             this[setting.Name] = Convert.ChangeType(setting.Value, Properties[setting.Name].PropertyType);
                     }
+                    PropertyChanged += (s, a) => HasChanges = true;
+
+                    Log.Info($"{SettingsPath} Loaded");
                 }
+                else
+                {
+                    Log.Warn($"{SettingsPath} does not exist");
+                }
+                
             }
             catch (Exception ex)
             {
@@ -81,6 +89,8 @@ namespace Shamanic.Properties
         {
             try
             {
+                Log.Debug($"Saving {SettingsPath}");
+
                 var saveFormat = PropertyValues.Cast<SettingsPropertyValue>()
                     .Where(p => p.SerializedValue.ToString() != p.Property.DefaultValue.ToString())
                     .Select(p => new Setting(p.Name, p.SerializedValue.ToString()))
@@ -88,7 +98,11 @@ namespace Shamanic.Properties
 
                 XmlManager<List<Setting>>.Save(SettingsPath, saveFormat);
 
+                HasChanges = false;
+
                 e.Cancel = true;
+
+                Log.Info($"{SettingsPath} Loaded");
             }
             catch (Exception ex)
             {
