@@ -3,11 +3,6 @@ using Hearthstone_Deck_Tracker.API;
 using Shamanic.Properties;
 using Shamanic.Views;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using static Shamanic.Views.EffectView;
 using CoreAPI = Hearthstone_Deck_Tracker.API.Core;
@@ -27,8 +22,8 @@ namespace Shamanic
             OpponentView = CreateView();
             TrackOpponent(CreateTracker(OpponentView));
 
-            GameEvents.OnGameStart.Add(GameStart);
-            GameEvents.OnInMenu.Add(InMenu);
+            Plugin.Events.GameStart += GameStart;
+            Plugin.Events.InMenu += InMenu;
         }
 
         private static EffectView CreateView()
@@ -41,8 +36,9 @@ namespace Shamanic
         private static EffectTracker CreateTracker(EffectView view)
         {
             var tracker = new EffectTracker();
-            view.OverloadEffect = tracker.Overload;
-            view.TotemEffect = tracker.Totems;
+            view.OverloadTotalEffect = tracker.OverloadTotal;
+            view.OverloadPlayedEffect = tracker.OverloadPlayed;
+            view.TotemsPlayedEffect = tracker.TotemsPlayed;
 
             GameEvents.OnGameStart.Add(tracker.GameStart);
             
@@ -51,14 +47,14 @@ namespace Shamanic
 
         private static void TrackOpponent(EffectTracker tracker)
         {
-            GameEvents.OnOpponentPlay.Add(tracker.Play);
-            GameEvents.OnOpponentCreateInPlay.Add(tracker.CreateInPlay);
+            Plugin.Events.OpponentPlay += tracker.Play;
+            Plugin.Events.OpponentCreateInPlay += tracker.CreateInPlay;
         }
 
         private static void TrackPlayer(EffectTracker tracker)
         {
-            GameEvents.OnPlayerPlay.Add(tracker.Play);
-            GameEvents.OnPlayerCreateInPlay.Add(tracker.CreateInPlay);
+            Plugin.Events.PlayerPlay += tracker.Play;
+            Plugin.Events.PlayerCreateInPlay += tracker.CreateInPlay;
         }
 
         internal void GameStart()
@@ -79,11 +75,22 @@ namespace Shamanic
 
             if (CoreAPI.Game.IsInMenu & Config.Instance.HideInMenu) return;
 
-            var showOverloadCounter = Helper.ShowOverloadCounter;
-            var showTotemsCounter = Helper.ShowTotemsCounter;
-
             PlayerView.SetLocation(Settings.Default.PlayerTop, 100 - Settings.Default.PlayerLeft);
-            PlayerView.CounterStyle = showOverloadCounter && showTotemsCounter ? CounterStyles.Full : (showOverloadCounter ? CounterStyles.Overload : (showTotemsCounter ? CounterStyles.Totems : CounterStyles.None));
+
+            var counterStyle = CounterStyles.None;
+            if (Helper.ShowOverloadPlayedCounter)
+            {
+                counterStyle |= CounterStyles.OverloadPlayed;
+            }
+            if (Helper.ShowOverloadTotalCounter)
+            {
+                counterStyle |= CounterStyles.OverloadTotal;
+            }
+            if (Helper.ShowTotemsPlayedCounter)
+            {
+                counterStyle |= CounterStyles.Totems;
+            }
+            PlayerView.CounterStyle = counterStyle;
 
             var showOpponentCounters = Helper.ShowOpponentCounters;
 

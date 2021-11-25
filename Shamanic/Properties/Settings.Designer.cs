@@ -12,7 +12,7 @@ namespace Shamanic.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.6.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "16.10.0.0")]
     public sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -26,24 +26,24 @@ namespace Shamanic.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Card")]
-        public global::Shamanic.DisplayMode OverloadCounterDisplay {
+        public global::Shamanic.DisplayMode OverloadTotalCounterDisplay {
             get {
-                return ((global::Shamanic.DisplayMode)(this["OverloadCounterDisplay"]));
+                return ((global::Shamanic.DisplayMode)(this["OverloadTotalCounterDisplay"]));
             }
             set {
-                this["OverloadCounterDisplay"] = value;
+                this["OverloadTotalCounterDisplay"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Card")]
-        public global::Shamanic.DisplayMode TotemsCounterDisplay {
+        public global::Shamanic.DisplayMode TotemsPlayedCounterDisplay {
             get {
-                return ((global::Shamanic.DisplayMode)(this["TotemsCounterDisplay"]));
+                return ((global::Shamanic.DisplayMode)(this["TotemsPlayedCounterDisplay"]));
             }
             set {
-                this["TotemsCounterDisplay"] = value;
+                this["TotemsPlayedCounterDisplay"] = value;
             }
         }
         
@@ -128,6 +128,18 @@ namespace Shamanic.Properties {
             }
             set {
                 this["MaxTop"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Card")]
+        public global::Shamanic.DisplayMode OverloadPlayedCounterDisplay {
+            get {
+                return ((global::Shamanic.DisplayMode)(this["OverloadPlayedCounterDisplay"]));
+            }
+            set {
+                this["OverloadPlayedCounterDisplay"] = value;
             }
         }
     }

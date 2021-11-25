@@ -145,20 +145,53 @@ namespace Shamanic.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Overload.
+        ///   Looks up a localized string similar to Overload
+        ///Played.
         /// </summary>
-        internal static string OverloadEffectName {
+        internal static string OverloadPlayedEffectName {
             get {
-                return ResourceManager.GetString("OverloadEffectName", resourceCulture);
+                return ResourceManager.GetString("OverloadPlayedEffectName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Overload.
+        ///   Looks up a localized string similar to Overload Played.
         /// </summary>
-        internal static string OverloadTitle {
+        internal static string OverloadPlayedTitle {
             get {
-                return ResourceManager.GetString("OverloadTitle", resourceCulture);
+                return ResourceManager.GetString("OverloadPlayedTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Always - Display Overload for all games playing as any class.
+        ///Shaman - Display Overload when playing as Shaman.
+        ///Class - Display Overload when playing as Shaman/Rogue/Priest.
+        ///Card - Display Overload for &apos;Charged Call&apos;.
+        ///Never - Do not display..
+        /// </summary>
+        internal static string OverloadPlayedTooltip {
+            get {
+                return ResourceManager.GetString("OverloadPlayedTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Overload
+        ///Total.
+        /// </summary>
+        internal static string OverloadTotalEffectName {
+            get {
+                return ResourceManager.GetString("OverloadTotalEffectName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Overload Total.
+        /// </summary>
+        internal static string OverloadTotalTitle {
+            get {
+                return ResourceManager.GetString("OverloadTotalTitle", resourceCulture);
             }
         }
         
@@ -169,9 +202,9 @@ namespace Shamanic.Properties {
         ///Card - Display Overload for &apos;Snowfury Giant&apos;.
         ///Never - Do not display..
         /// </summary>
-        internal static string OverloadTooltip {
+        internal static string OverloadTotalTooltip {
             get {
-                return ResourceManager.GetString("OverloadTooltip", resourceCulture);
+                return ResourceManager.GetString("OverloadTotalTooltip", resourceCulture);
             }
         }
         
@@ -270,20 +303,21 @@ namespace Shamanic.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Totems.
+        ///   Looks up a localized string similar to Totems
+        ///Played.
         /// </summary>
-        internal static string TotemsEffectName {
+        internal static string TotemsPlayedEffectName {
             get {
-                return ResourceManager.GetString("TotemsEffectName", resourceCulture);
+                return ResourceManager.GetString("TotemsPlayedEffectName", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Totems.
+        ///   Looks up a localized string similar to Totems Played.
         /// </summary>
-        internal static string TotemsTitle {
+        internal static string TotemsPlayedTitle {
             get {
-                return ResourceManager.GetString("TotemsTitle", resourceCulture);
+                return ResourceManager.GetString("TotemsPlayedTitle", resourceCulture);
             }
         }
         
@@ -294,9 +328,9 @@ namespace Shamanic.Properties {
         ///Card - Display Totems for &apos;Thing from Below&apos;.
         ///Never - Do not display..
         /// </summary>
-        internal static string TotemsTooltip {
+        internal static string TotemsPlayedTooltip {
             get {
-                return ResourceManager.GetString("TotemsTooltip", resourceCulture);
+                return ResourceManager.GetString("TotemsPlayedTooltip", resourceCulture);
             }
         }
     }

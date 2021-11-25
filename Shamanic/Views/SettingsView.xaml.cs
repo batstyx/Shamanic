@@ -39,8 +39,9 @@ namespace Shamanic.Views
         {
             InitializeComponent();
 
-            ComboBoxTotems.ItemsSource = TotemsCounterDisplayModes;
-            ComboBoxOverload.ItemsSource = OverloadCounterDisplayModes;
+            ComboBoxTotemsPlayed.ItemsSource = TotemsCounterDisplayModes;
+            ComboBoxOverloadPlayed.ItemsSource = OverloadCounterDisplayModes;
+            ComboBoxOverloadTotal.ItemsSource = OverloadCounterDisplayModes;
             ComboBoxOpponent.ItemsSource = OpponentCounterDisplayModes;
         }
 

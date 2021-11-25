@@ -2,25 +2,28 @@
 using Hearthstone_Deck_Tracker.Utility.Logging;
 using Shamanic.Properties;
 using System;
-using System.Diagnostics;
 
 namespace Shamanic
 {
     internal class EffectTracker
-    {
-        public Effect Overload { get; } = new Effect(Strings.Get("OverloadEffectName"));
-        public Effect Totems { get; } = new Effect(Strings.Get("TotemsEffectName"));
+    {        
+        public Effect OverloadTotal { get; } = new Effect(Strings.Get("OverloadTotalEffectName"));
+        public Effect OverloadPlayed { get; } = new Effect(Strings.Get("OverloadPlayedEffectName"));
+        public Effect TotemsPlayed { get; } = new Effect(Strings.Get("TotemsPlayedEffectName"));
 
         private bool IncrementOverload(Card card) => card.Overload > 0;
-        private bool IncrementTotems(Card card) => card.Type == "Minion" && card.Race == "Totem" || card.Race == "All"; //TODO: Localise Card Type and Race?
+        private bool IncrementTotems(Card card) => card.Type == "Minion" && (card.Race == "Totem" || card.Race == "All");
 
         internal void GameStart()
         {
             try
             {
+#if DEBUG
                 Log.Info("Shamanic GameStart");
-                Overload.Reset();
-                Totems.Reset();
+#endif
+                OverloadTotal.Reset();
+                OverloadPlayed.Reset();
+                TotemsPlayed.Reset();
             }
             catch (Exception ex)
             {
@@ -33,13 +36,18 @@ namespace Shamanic
         {
             try
             {
-                Log.Info($"Shamanic Play Card: {card.Type}+{card.Race}+{card.Overload}");
+#if DEBUG
+                Log.Info($"Shamanic Play Card: {card?.Type}+{card?.Race}+{card?.Overload}"); 
+#endif
 
                 if (IncrementTotems(card))
-                    Totems.Increment();
+                    TotemsPlayed.Increment();
 
                 if (IncrementOverload(card))
-                    Overload.Increment(card.Overload);
+                {
+                    OverloadPlayed.Increment();
+                    OverloadTotal.Increment(card.Overload);
+                }
             }
             catch (Exception ex)
             {
@@ -51,10 +59,12 @@ namespace Shamanic
         {
             try
             {
-                Log.Info($"Shamanic CreateInPlay Card: {card.Type}+{card.Race}+{card.Overload}");
+#if DEBUG
+                Log.Info($"Shamanic CreateInPlay Card: {card?.Type}+{card?.Race}+{card?.Overload}");
+#endif
 
                 if (IncrementTotems(card))
-                    Totems.Increment();
+                    TotemsPlayed.Increment();
             }
             catch (Exception ex)
             {

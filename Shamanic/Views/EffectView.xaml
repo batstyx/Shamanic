@@ -10,7 +10,7 @@
              lex:ResxLocalizationProvider.DefaultAssembly="Shamanic"
              lex:ResxLocalizationProvider.DefaultDictionary="Resources"
              mc:Ignorable="d" 
-             Height="70" d:DesignWidth="200">
+             Height="70" d:DesignWidth="240">
     <UserControl.Resources>
         <Style TargetType="TextBlock">
             <Setter Property="Foreground" Value="#3F3424"/>
@@ -31,23 +31,32 @@
                             <ColumnDefinition Width="50" />
                             <ColumnDefinition />
                             <ColumnDefinition />
+                            <ColumnDefinition />
                         </Grid.ColumnDefinitions>
                         <Image Source="/HearthstoneDeckTracker;component/Resources/ClassIcons/Square/shaman.png" Grid.Column="0" Height="40" Width="40"/>
-                        <Grid Visibility="{Binding OverloadVisibility, RelativeSource={RelativeSource AncestorType=UserControl}}" HorizontalAlignment="Center" Grid.Column="1">
+                        <Grid Visibility="{Binding OverloadTotalVisibility, RelativeSource={RelativeSource AncestorType=UserControl}}" HorizontalAlignment="Center" Grid.Column="1">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="35"/>
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
-                            <TextBlock Text="{Binding OverloadEffect.Count, RelativeSource={RelativeSource AncestorType=UserControl}}" Grid.Row="0" Margin="0,10"/>
-                            <TextBlock Text="{Binding OverloadEffect.Name, RelativeSource={RelativeSource AncestorType=UserControl},Converter={StaticResource ToUpperValue}}" FontSize="8" Grid.Row="1"/>
+                            <TextBlock Text="{Binding OverloadTotalEffect.Count, RelativeSource={RelativeSource AncestorType=UserControl}}" Grid.Row="0" Margin="0,5"/>
+                            <TextBlock Text="{Binding OverloadTotalEffect.Name, RelativeSource={RelativeSource AncestorType=UserControl},Converter={StaticResource ToUpperValue}}" FontSize="8" Grid.Row="1"/>
                         </Grid>
-                        <Grid Visibility="{Binding TotemsVisibility, RelativeSource={RelativeSource AncestorType=UserControl}}" HorizontalAlignment="Center" Grid.Column="2">
+                        <Grid Visibility="{Binding OverloadPlayedVisibility, RelativeSource={RelativeSource AncestorType=UserControl}}" HorizontalAlignment="Center" Grid.Column="2">
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="35"/>
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
-                            <TextBlock Text="{Binding TotemEffect.Count, RelativeSource={RelativeSource AncestorType=UserControl}}" Grid.Row="0" Margin="0,10"/>
-                            <TextBlock Text="{Binding TotemEffect.Name, RelativeSource={RelativeSource AncestorType=UserControl},Converter={StaticResource ToUpperValue}}" FontSize="8" Grid.Row="1"/>
+                            <TextBlock Text="{Binding OverloadPlayedEffect.Count, RelativeSource={RelativeSource AncestorType=UserControl}}" Grid.Row="0" Margin="0,5"/>
+                            <TextBlock Text="{Binding OverloadPlayedEffect.Name, RelativeSource={RelativeSource AncestorType=UserControl},Converter={StaticResource ToUpperValue}}" FontSize="8" Grid.Row="1"/>
+                        </Grid>
+                        <Grid Visibility="{Binding TotemsVisibility, RelativeSource={RelativeSource AncestorType=UserControl}}" HorizontalAlignment="Center" Grid.Column="3">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="35"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Text="{Binding TotemsPlayedEffect.Count, RelativeSource={RelativeSource AncestorType=UserControl}}" Grid.Row="0" Margin="0,5"/>
+                            <TextBlock Text="{Binding TotemsPlayedEffect.Name, RelativeSource={RelativeSource AncestorType=UserControl},Converter={StaticResource ToUpperValue}}" FontSize="8" Grid.Row="1"/>
                         </Grid>
                     </Grid>
                 </Border>

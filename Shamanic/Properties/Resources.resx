@@ -147,13 +147,28 @@ Shaman -  Display opponent Overload and Totems for all games vs Shaman.
 Class -  Display opponent Overload and Totems for all games vs Shaman/Rogue/Priest.
 Never - Do not display.</value>
   </data>
-  <data name="OverloadEffectName" xml:space="preserve">
-    <value>Overload</value>
+  <data name="OverloadPlayedEffectName" xml:space="preserve">
+    <value>Overload
+Played</value>
   </data>
-  <data name="OverloadTitle" xml:space="preserve">
-    <value>Overload</value>
+  <data name="OverloadPlayedTitle" xml:space="preserve">
+    <value>Overload Played</value>
   </data>
-  <data name="OverloadTooltip" xml:space="preserve">
+  <data name="OverloadPlayedTooltip" xml:space="preserve">
+    <value>Always - Display Overload for all games playing as any class.
+Shaman - Display Overload when playing as Shaman.
+Class - Display Overload when playing as Shaman/Rogue/Priest.
+Card - Display Overload for 'Charged Call'.
+Never - Do not display.</value>
+  </data>
+  <data name="OverloadTotalEffectName" xml:space="preserve">
+    <value>Overload
+Total</value>
+  </data>
+  <data name="OverloadTotalTitle" xml:space="preserve">
+    <value>Overload Total</value>
+  </data>
+  <data name="OverloadTotalTooltip" xml:space="preserve">
     <value>Always - Display Overload for all games playing as any class.
 Shaman - Display Overload when playing as Shaman.
 Class - Display Overload when playing as Shaman/Rogue/Priest.
@@ -194,13 +209,14 @@ Mainly for use with the Shaman cards 'Thing from Below' and 'Snowfury Giant'.
   <data name="SettingsVerticalTooltip" xml:space="preserve">
     <value>% Screen Position (Top &lt;-&gt; Bottom)</value>
   </data>
-  <data name="TotemsEffectName" xml:space="preserve">
-    <value>Totems</value>
+  <data name="TotemsPlayedEffectName" xml:space="preserve">
+    <value>Totems
+Played</value>
   </data>
-  <data name="TotemsTitle" xml:space="preserve">
-    <value>Totems</value>
+  <data name="TotemsPlayedTitle" xml:space="preserve">
+    <value>Totems Played</value>
   </data>
-  <data name="TotemsTooltip" xml:space="preserve">
+  <data name="TotemsPlayedTooltip" xml:space="preserve">
     <value>Always - Display Totems for all games playing as any class.
 Shaman - Display Totems when playing as Shaman.
 Class - Display Totems when playing as Shaman/Rogue/Priest.

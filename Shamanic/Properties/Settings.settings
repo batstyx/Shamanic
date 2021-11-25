@@ -2,10 +2,10 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Shamanic.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="OverloadCounterDisplay" Type="Shamanic.DisplayMode" Scope="User">
+    <Setting Name="OverloadTotalCounterDisplay" Type="Shamanic.DisplayMode" Scope="User">
       <Value Profile="(Default)">Card</Value>
     </Setting>
-    <Setting Name="TotemsCounterDisplay" Type="Shamanic.DisplayMode" Scope="User">
+    <Setting Name="TotemsPlayedCounterDisplay" Type="Shamanic.DisplayMode" Scope="User">
       <Value Profile="(Default)">Card</Value>
     </Setting>
     <Setting Name="OpponentCountersDisplay" Type="Shamanic.DisplayMode" Scope="User">
@@ -28,6 +28,9 @@
     </Setting>
     <Setting Name="MaxTop" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">94</Value>
+    </Setting>
+    <Setting Name="OverloadPlayedCounterDisplay" Type="Shamanic.DisplayMode" Scope="User">
+      <Value Profile="(Default)">Card</Value>
     </Setting>
   </Settings>
 </SettingsFile>
