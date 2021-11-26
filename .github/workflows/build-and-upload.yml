@@ -2,10 +2,11 @@ name: Build+Upload
 on:
   workflow_dispatch:
 
+env: 
+  myProject: ${{ GITHUB_REPOSITORY#*/ }}
+
 jobs:
   build-and-upload:
-    env: 
-      myProject: ${{ GITHUB_REPOSITORY#*/ }}
     runs-on: windows-latest      
     steps:
       - uses: actions/checkout@v2
