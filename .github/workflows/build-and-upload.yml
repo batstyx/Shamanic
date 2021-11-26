@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
 
 env: 
-  myProject: ${{ 'Shamanic' }}
+  PROJECT: ${{ 'Shamanic' }}
 
 jobs:
   build-and-upload:
@@ -13,15 +13,14 @@ jobs:
       - uses: microsoft/setup-msbuild@v1
       - uses: NuGet/setup-nuget@v1.0.5 
       - run: .\scripts\update-libraries.ps1
-      - run: nuget restore "${{ env.myProject }}.sln"
+      - run: nuget restore "${{ env.PROJECT }}.sln"
       - id: set_version
         run: |
           $build = 1000 + $Env:GITHUB_RUN_NUMBER
-          $buildVersion = .\scripts\assembly-version.ps1 -project "${{ env.myProject }}" -build $build -overrideVersion ${{ github.ref }}
+          $buildVersion = .\scripts\assembly-version.ps1 -project "${{ env.PROJECT }}" -build $build -overrideVersion ${{ github.ref }}
           echo "::set-output name=buildVersion::$buildVersion"
-      - run: msbuild.exe "${{ env.myProject }}.sln" /p:platform="x86" /p:configuration="Release"
-#      - run: 7z a ${{ env.myProject }}.zip .\${{ env.myProject }}\bin\x86\Release\${{ env.myProject }}.dll .\${{ env.myProject }}\bin\x86\Release\*-*
+      - run: msbuild.exe "${{ env.PROJECT }}.sln" /p:platform="x86" /p:configuration="Release"
       - uses: actions/upload-artifact@v2.2.3
         with:
-          name: ${{ env.myProject }}-v${{ steps.set_version.outputs.buildVersion }}
-          path: .\${{ env.myProject }}\bin\x86\Release\${{ env.myProject }}.dll
+          name: ${{ env.PROJECT }}-v${{ steps.set_version.outputs.buildVersion }}
+          path: .\${{ env.PROJECT }}\bin\x86\Release\${{ env.PROJECT }}.dll
