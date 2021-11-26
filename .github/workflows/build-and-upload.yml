@@ -10,15 +10,15 @@ jobs:
       - uses: microsoft/setup-msbuild@v1
       - uses: NuGet/setup-nuget@v1.0.5 
       - run: .\scripts\update-libraries.ps1
-      - run: nuget restore "Shamanic.sln"
+      - run: nuget restore "${GITHUB_REPOSITORY#*/}.sln"
       - id: set_version
         run: |
-          $build = 50 + $Env:GITHUB_RUN_NUMBER
-          $buildVersion = .\scripts\assembly-version.ps1 -project "Shamanic" -build $build -overrideVersion ${{ github.ref }}
+          $build = 1000 + $Env:GITHUB_RUN_NUMBER
+          $buildVersion = .\scripts\assembly-version.ps1 -project "${GITHUB_REPOSITORY#*/}" -build $build -overrideVersion ${{ github.ref }}
           echo "::set-output name=buildVersion::$buildVersion"
-      - run: msbuild.exe "Shamanic.sln" /p:platform="x86" /p:configuration="Release"
-#      - run: 7z a Shamanic.zip .\Shamanic\bin\x86\Release\Shamanic.dll .\Shamanic\bin\x86\Release\*-*
+      - run: msbuild.exe "${GITHUB_REPOSITORY#*/}.sln" /p:platform="x86" /p:configuration="Release"
+#      - run: 7z a ${GITHUB_REPOSITORY#*/}.zip .\${GITHUB_REPOSITORY#*/}\bin\x86\Release\${GITHUB_REPOSITORY#*/}.dll .\${GITHUB_REPOSITORY#*/}\bin\x86\Release\*-*
       - uses: actions/upload-artifact@v2.2.3
         with:
-          name: Shamanic-v${{ steps.set_version.outputs.buildVersion }}
-          path: .\Shamanic\bin\x86\Release\Shamanic.dll
+          name: ${GITHUB_REPOSITORY#*/}-v${{ steps.set_version.outputs.buildVersion }}
+          path: .\${GITHUB_REPOSITORY#*/}\bin\x86\Release\${GITHUB_REPOSITORY#*/}.dll
