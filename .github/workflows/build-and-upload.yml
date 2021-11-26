@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
 
 env: 
-  myProject: ${{ GITHUB_REPOSITORY#*/ }}
+  myProject: ${{ 'Shamanic' }}
 
 jobs:
   build-and-upload:
