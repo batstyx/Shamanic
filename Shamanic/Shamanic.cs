@@ -13,14 +13,19 @@ namespace Shamanic
     {
         private readonly EffectView PlayerView;
         private readonly EffectView OpponentView;
+
+        private EffectTracker PlayerTracker;
+        private EffectTracker OpponentTracker;
         
         public Shamanic()
         {
             PlayerView = CreateView();
-            TrackPlayer(CreateTracker(PlayerView));
+            PlayerTracker = CreateTracker(PlayerView);
+            TrackPlayer(PlayerTracker);
 
             OpponentView = CreateView();
-            TrackOpponent(CreateTracker(OpponentView));
+            OpponentTracker = CreateTracker(OpponentView);
+            TrackOpponent(OpponentTracker);
 
             Plugin.Events.GameStart += GameStart;
             Plugin.Events.InMenu += InMenu;
@@ -36,9 +41,9 @@ namespace Shamanic
         private static EffectTracker CreateTracker(EffectView view)
         {
             var tracker = new EffectTracker();
-            view.OverloadTotalEffect = tracker.OverloadTotal;
-            view.OverloadPlayedEffect = tracker.OverloadPlayed;
-            view.TotemsPlayedEffect = tracker.TotemsPlayed;
+            view.Effects.Add(tracker.OverloadTotal);
+            view.Effects.Add(tracker.OverloadPlayed);
+            view.Effects.Add(tracker.TotemsPlayed);
 
             GameEvents.OnGameStart.Add(tracker.GameStart);
             
@@ -77,17 +82,17 @@ namespace Shamanic
 
             PlayerView.SetLocation(Settings.Default.PlayerTop, 100 - Settings.Default.PlayerLeft);
 
-            PlayerView.OverloadPlayedEffect.Active = Helper.ShowOverloadPlayedCounter;
-            PlayerView.OverloadTotalEffect.Active = Helper.ShowOverloadTotalCounter;
-            PlayerView.TotemsPlayedEffect.Active = Helper.ShowTotemsPlayedCounter;
+            PlayerTracker.OverloadPlayed.Active = Helper.ShowOverloadPlayedCounter || CoreAPI.Game.IsInMenu;
+            PlayerTracker.OverloadTotal.Active = Helper.ShowOverloadTotalCounter || CoreAPI.Game.IsInMenu;
+            PlayerTracker.TotemsPlayed.Active = Helper.ShowTotemsPlayedCounter || CoreAPI.Game.IsInMenu;
             PlayerView.RefreshVisibility();
 
             OpponentView.SetLocation(Settings.Default.OpponentTop, 100 - Settings.Default.OpponentLeft);
 
-            var showOpponentCounters = Helper.ShowOpponentCounters;
-            OpponentView.OverloadPlayedEffect.Active = showOpponentCounters;
-            OpponentView.OverloadTotalEffect.Active = showOpponentCounters;
-            OpponentView.TotemsPlayedEffect.Active = showOpponentCounters;
+            var showOpponentCounters = Helper.ShowOpponentCounters || CoreAPI.Game.IsInMenu;
+            OpponentTracker.OverloadPlayed.Active = showOpponentCounters;
+            OpponentTracker.OverloadTotal.Active = showOpponentCounters;
+            OpponentTracker.TotemsPlayed.Active = showOpponentCounters;
             OpponentView.RefreshVisibility();
         }
 

@@ -2,6 +2,7 @@
 using Hearthstone_Deck_Tracker.API;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows;
@@ -22,42 +23,23 @@ namespace Shamanic.Views
             Canvas.SetRight(this, Core.OverlayWindow.Width * PercentFromRight / 100);
         }
 
-        private Effect _TotemsPlayedEffect = null;
-        public Effect TotemsPlayedEffect
-        {
-            get => _TotemsPlayedEffect;
-            set => SetProperty(ref _TotemsPlayedEffect, value);
-        }
-
-        private Effect _OverloadPlayedEffect = null;
-        public Effect OverloadPlayedEffect
-        {
-            get => _OverloadPlayedEffect;
-            set => SetProperty(ref _OverloadPlayedEffect, value);
-        }
-
-        private Effect _OverloadTotalEffect = null;
-        public Effect OverloadTotalEffect
-        {
-            get => _OverloadTotalEffect;
-            set => SetProperty(ref _OverloadTotalEffect, value);
-        }
+        public ObservableCollection<Effect> Effects { get; } = new ObservableCollection<Effect>();
 
         public Visibility SomeVisibility { get => _SomeVisibility; private set => SetProperty(ref _SomeVisibility,value); }
         private Visibility _SomeVisibility = Visibility.Collapsed;
 
         public void RefreshVisibility()
         {
-            if (TotemsPlayedEffect.Active
-                || OverloadPlayedEffect.Active
-                || OverloadTotalEffect.Active)
+            var someVisibility = Visibility.Collapsed;
+            foreach (var effect in Effects)
             {
-                SomeVisibility = Visibility.Visible;
+                if (effect.Active)
+                {
+                    someVisibility = Visibility.Visible;
+                    break;
+                }
             }
-            else
-            {
-                SomeVisibility = Visibility.Collapsed;
-            }
+            SomeVisibility = someVisibility;
         }
 
         #region INotifyPropertyChanged
