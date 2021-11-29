@@ -77,26 +77,18 @@ namespace Shamanic
 
             PlayerView.SetLocation(Settings.Default.PlayerTop, 100 - Settings.Default.PlayerLeft);
 
-            var counterStyle = CounterStyles.None;
-            if (Helper.ShowOverloadPlayedCounter)
-            {
-                counterStyle |= CounterStyles.OverloadPlayed;
-            }
-            if (Helper.ShowOverloadTotalCounter)
-            {
-                counterStyle |= CounterStyles.OverloadTotal;
-            }
-            if (Helper.ShowTotemsPlayedCounter)
-            {
-                counterStyle |= CounterStyles.Totems;
-            }
-            PlayerView.CounterStyle = counterStyle;
-
-            var showOpponentCounters = Helper.ShowOpponentCounters;
+            PlayerView.OverloadPlayedEffect.Active = Helper.ShowOverloadPlayedCounter;
+            PlayerView.OverloadTotalEffect.Active = Helper.ShowOverloadTotalCounter;
+            PlayerView.TotemsPlayedEffect.Active = Helper.ShowTotemsPlayedCounter;
+            PlayerView.RefreshVisibility();
 
             OpponentView.SetLocation(Settings.Default.OpponentTop, 100 - Settings.Default.OpponentLeft);
-            OpponentView.CounterStyle = showOpponentCounters ? CounterStyles.Full : CounterStyles.None;
 
+            var showOpponentCounters = Helper.ShowOpponentCounters;
+            OpponentView.OverloadPlayedEffect.Active = showOpponentCounters;
+            OpponentView.OverloadTotalEffect.Active = showOpponentCounters;
+            OpponentView.TotemsPlayedEffect.Active = showOpponentCounters;
+            OpponentView.RefreshVisibility();
         }
 
         public void Dispose()

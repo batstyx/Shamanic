@@ -11,8 +11,6 @@ namespace Shamanic.Views
 {
     public partial class EffectView : UserControl, INotifyPropertyChanged
     {
-        private bool _ForceShow;
-
         public EffectView()
         {
             InitializeComponent();
@@ -45,50 +43,35 @@ namespace Shamanic.Views
             set => SetProperty(ref _OverloadTotalEffect, value);
         }
 
-        private CounterStyles _CounterStyle;
-        public CounterStyles CounterStyle
+        public Visibility SomeVisibility { get => _SomeVisibility; private set => SetProperty(ref _SomeVisibility,value); }
+        private Visibility _SomeVisibility = Visibility.Collapsed;
+
+        public void RefreshVisibility()
         {
-            get => _CounterStyle;
-            set => SetProperty(ref _CounterStyle, value, callback: RefreshVisibility);
+            if (TotemsPlayedEffect.Active
+                || OverloadPlayedEffect.Active
+                || OverloadTotalEffect.Active)
+            {
+                SomeVisibility = Visibility.Visible;
+            }
+            else
+            {
+                SomeVisibility = Visibility.Collapsed;
+            }
         }
 
-        public Visibility OverloadPlayedVisibility => _ForceShow || (CounterStyle & CounterStyles.OverloadPlayed) != 0 ? Visibility.Visible : Visibility.Collapsed;
-        public Visibility OverloadTotalVisibility => _ForceShow || (CounterStyle & CounterStyles.OverloadTotal) != 0 ? Visibility.Visible : Visibility.Collapsed;
-        public Visibility TotemsVisibility => _ForceShow || (CounterStyle & CounterStyles.Totems) != 0 ? Visibility.Visible : Visibility.Collapsed;
-        public Visibility SomeVisibility => OverloadPlayedVisibility == Visibility.Visible
-            | OverloadTotalVisibility == Visibility.Visible
-            | TotemsVisibility == Visibility.Visible 
-            ? Visibility.Visible : Visibility.Collapsed;
-
-        private void RefreshVisibility()
-        {
-            OnPropertyChanged(nameof(OverloadPlayedVisibility));
-            OnPropertyChanged(nameof(OverloadTotalVisibility));
-            OnPropertyChanged(nameof(TotemsVisibility));
-            OnPropertyChanged(nameof(SomeVisibility));
-        }
-
-        public void ForceShow(bool force)
-        {
-            _ForceShow = force;
-            RefreshVisibility();
-        }
-
-        public enum CounterStyles
-        {
-            None,
-            OverloadPlayed = 1,
-            OverloadTotal = 2,
-            Totems = 4,
-            Full = 7
-        }
+        #region INotifyPropertyChanged
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            var changed = PropertyChanged;
+            if (changed == null)
+                return;
+
+            changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         protected bool SetProperty<T>(ref T backingStore, T value,
@@ -102,6 +85,8 @@ namespace Shamanic.Views
             callback?.Invoke();
             OnPropertyChanged(propertyName);
             return true;
-        }
+        } 
+
+        #endregion
     }
 }
