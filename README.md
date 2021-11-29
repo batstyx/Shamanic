@@ -1,6 +1,6 @@
 [![Latest Release](https://img.shields.io/github/release/batstyx/Shamanic.svg)](https://github.com/batstyx/Shamanic/releases)
 
-![Build Status](https://github.com/batstyx/shamanic/actions/workflows/build-and-release-on-push-or-pull-request.yml/badge.svg)
+[![Build Status](https://github.com/batstyx/shamanic/actions/workflows/build-and-release-on-push-or-pull-request.yml/badge.svg)](https://github.com/batstyx/Shamanic/actions/workflows/build-and-release-on-push-or-pull-request.yml)
 
 # Shamanic
 
