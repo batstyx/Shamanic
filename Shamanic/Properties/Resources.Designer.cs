@@ -19,7 +19,7 @@ namespace Shamanic.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -254,6 +254,42 @@ namespace Shamanic.Properties {
         internal static string SettingsHorizontalTooltip {
             get {
                 return ResourceManager.GetString("SettingsHorizontalTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Orientation.
+        /// </summary>
+        internal static string SettingsOrientation {
+            get {
+                return ResourceManager.GetString("SettingsOrientation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vertical or Horizontal view stacking.
+        /// </summary>
+        internal static string SettingsOrientationDescription {
+            get {
+                return ResourceManager.GetString("SettingsOrientationDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Horizontal.
+        /// </summary>
+        internal static string SettingsOrientationHorizontal {
+            get {
+                return ResourceManager.GetString("SettingsOrientationHorizontal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vertical.
+        /// </summary>
+        internal static string SettingsOrientationVertical {
+            get {
+                return ResourceManager.GetString("SettingsOrientationVertical", resourceCulture);
             }
         }
         

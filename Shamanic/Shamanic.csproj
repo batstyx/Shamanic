@@ -77,6 +77,7 @@
     <Compile Include="EffectTracker.cs" />
     <Compile Include="EventManager.cs" />
     <Compile Include="Shamanic.cs" />
+    <Compile Include="Views\Converters\EnumToBoolConverter.cs" />
     <Compile Include="Views\EffectView.xaml.cs">
       <DependentUpon>EffectView.xaml</DependentUpon>
     </Compile>

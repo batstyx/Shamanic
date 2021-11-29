@@ -23,6 +23,9 @@ namespace Shamanic.Views
             Canvas.SetRight(this, Core.OverlayWindow.Width * PercentFromRight / 100);
         }
 
+        public Orientation Orientation { get => _Orientation; set => SetProperty(ref _Orientation, value); }
+        private Orientation _Orientation;
+
         public ObservableCollection<Effect> Effects { get; } = new ObservableCollection<Effect>();
 
         public Visibility SomeVisibility { get => _SomeVisibility; private set => SetProperty(ref _SomeVisibility,value); }

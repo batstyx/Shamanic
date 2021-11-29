@@ -81,6 +81,7 @@ namespace Shamanic
             if (CoreAPI.Game.IsInMenu & Config.Instance.HideInMenu) return;
 
             PlayerView.SetLocation(Settings.Default.PlayerTop, 100 - Settings.Default.PlayerLeft);
+            PlayerView.Orientation = Settings.Default.PlayerOrientation;
 
             PlayerTracker.OverloadPlayed.Active = Helper.ShowOverloadPlayedCounter || CoreAPI.Game.IsInMenu;
             PlayerTracker.OverloadTotal.Active = Helper.ShowOverloadTotalCounter || CoreAPI.Game.IsInMenu;
@@ -88,6 +89,7 @@ namespace Shamanic
             PlayerView.RefreshVisibility();
 
             OpponentView.SetLocation(Settings.Default.OpponentTop, 100 - Settings.Default.OpponentLeft);
+            OpponentView.Orientation = Settings.Default.OpponentOrientation;
 
             var showOpponentCounters = Helper.ShowOpponentCounters || CoreAPI.Game.IsInMenu;
             OpponentTracker.OverloadPlayed.Active = showOpponentCounters;

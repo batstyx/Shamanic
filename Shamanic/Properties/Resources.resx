@@ -194,6 +194,18 @@ Mainly for use with the Shaman cards 'Thing from Below' and 'Snowfury Giant'.
   <data name="SettingsHorizontalTooltip" xml:space="preserve">
     <value>% Screen Position (Left &lt;-&gt; Right)</value>
   </data>
+  <data name="SettingsOrientation" xml:space="preserve">
+    <value>Orientation</value>
+  </data>
+  <data name="SettingsOrientationDescription" xml:space="preserve">
+    <value>Vertical or Horizontal view stacking</value>
+  </data>
+  <data name="SettingsOrientationHorizontal" xml:space="preserve">
+    <value>Horizontal</value>
+  </data>
+  <data name="SettingsOrientationVertical" xml:space="preserve">
+    <value>Vertical</value>
+  </data>
   <data name="SettingsPositionResetButton" xml:space="preserve">
     <value>Reset to Default</value>
   </data>

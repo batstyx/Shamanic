@@ -32,5 +32,11 @@
     <Setting Name="OverloadPlayedCounterDisplay" Type="Shamanic.DisplayMode" Scope="User">
       <Value Profile="(Default)">Card</Value>
     </Setting>
+    <Setting Name="PlayerOrientation" Type="System.Windows.Controls.Orientation" Scope="User">
+      <Value Profile="(Default)">Horizontal</Value>
+    </Setting>
+    <Setting Name="OpponentOrientation" Type="System.Windows.Controls.Orientation" Scope="User">
+      <Value Profile="(Default)">Horizontal</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

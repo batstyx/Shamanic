@@ -9,8 +9,7 @@
              lex:LocalizeDictionary.DesignCulture="en"
              lex:ResxLocalizationProvider.DefaultAssembly="Shamanic"
              lex:ResxLocalizationProvider.DefaultDictionary="Resources"
-             mc:Ignorable="d" 
-             Height="70">
+             mc:Ignorable="d">
     <UserControl.Resources>
         <conv:ToUpperValueConverter x:Key="ToUpperValue" />
         <BooleanToVisibilityConverter x:Key="BooleanToVisibility"/>
@@ -20,31 +19,33 @@
         <Border BorderThickness="3" CornerRadius="9" BorderBrush="#281b0b">
             <Border BorderThickness="3" CornerRadius="6" BorderBrush="#785121">
                 <Border BorderThickness="3" CornerRadius="3" BorderBrush="#e9cfaf">
-                    <StackPanel Orientation="Horizontal" 
+                    <StackPanel Orientation="{Binding Orientation,
+                        RelativeSource={RelativeSource AncestorType=UserControl}}" 
                                 Background="#e9cfaf">
                         <Image Source="/HearthstoneDeckTracker;component/Resources/ClassIcons/Square/shaman.png" 
                                Height="40" 
-                               Width="40"/>
+                               Width="40"
+                               Margin="5"/>
                         <ItemsControl ItemsSource="{Binding Effects,
                             RelativeSource={RelativeSource AncestorType=UserControl}}">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
-                                    <StackPanel Orientation="Horizontal"/>
+                                    <StackPanel Orientation="{Binding Orientation,
+                                        RelativeSource={RelativeSource AncestorType=UserControl}}"/>
                                 </ItemsPanelTemplate>
                             </ItemsControl.ItemsPanel>
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
                                     <Grid Visibility="{Binding Active,
-                                    Converter={StaticResource BooleanToVisibility}}" 
-                                        HorizontalAlignment="Center" 
-                                        Grid.Column="1">
+                                        Converter={StaticResource BooleanToVisibility}}" 
+                                          HorizontalAlignment="Center"
+                                          MinWidth="50"
+                                          MinHeight="50">
                                         <Grid.Resources>
                                             <Style TargetType="TextBlock">
                                                 <Setter Property="Foreground" Value="#3F3424"/>
                                                 <Setter Property="FontFamily" Value="/HearthstoneDeckTracker;component/Resources/#Chunkfive"/>
                                                 <Setter Property="FontSize" Value="20"/>
-                                                <Setter Property="Width" Value="50"/>
-                                                <Setter Property="Height" Value="40"/>
                                                 <Setter Property="TextAlignment" Value="Center"/>
                                             </Style>
                                         </Grid.Resources>
