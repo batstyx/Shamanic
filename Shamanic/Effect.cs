@@ -1,8 +1,8 @@
 ﻿using Hearthstone_Deck_Tracker.Annotations;
-using Hearthstone_Deck_Tracker.Hearthstone;
+using Hearthstone_Deck_Tracker.Utility.Logging;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Runtime.CompilerServices;
 
 namespace Shamanic
@@ -10,20 +10,22 @@ namespace Shamanic
     public class Effect : INotifyPropertyChanged
     {
         public string Name { get; }
-        public int Count { get; private set; }
+        public int Count { get => _Count; private set => SetProperty(ref _Count, value); }
+        private int _Count;
+        public bool Active { get => _Active; set => SetProperty(ref _Active, value); }
+        private bool _Active;
 
         public Effect(string name)
         {
             Name = name;
             Count = 0;
-            Debug.WriteLine("Shamanic Effect Create {0}: {1}", Name, Count);
+            Log.Debug($"Shamanic Effect Create {Name}: {Count}");
         }      
         
         public int Increment(int byAmount = 1)
         {
+            Log.Debug($"Shamanic Effect Increment {Name}: {Count}+{byAmount}");
             Count += byAmount;
-            Debug.WriteLine("Shamanic Effect Increment {0}: {1}", Name, Count);
-            OnPropertyChanged(nameof(Count));
             return Count;
         }
 
@@ -31,18 +33,37 @@ namespace Shamanic
         public void Reset()
         {
             Count = 0;
-            Debug.WriteLine("Shamanic Effect Reset {0}: {1}", Name, Count);
-            OnPropertyChanged(nameof(Count));
+            Log.Debug($"Shamanic Effect Reset {Name}: {Count}");
         }
 
         public bool HasCount { get { return Count > 0; } }
+
+        #region INotifyPropertyChanged
+        protected bool SetProperty<T>(ref T backingStore, T value,
+            [CallerMemberName] string propertyName = "",
+            Action onChanged = null)
+        {
+            if (EqualityComparer<T>.Default.Equals(backingStore, value))
+                return false;
+
+            backingStore = value;
+            onChanged?.Invoke();
+            OnPropertyChanged(propertyName);
+            return true;
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+            var changed = PropertyChanged;
+            if (changed == null)
+                return;
+
+            changed.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        } 
+
+        #endregion
     }
 }
