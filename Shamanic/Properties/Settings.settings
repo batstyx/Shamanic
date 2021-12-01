@@ -2,14 +2,11 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Shamanic.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="OverloadTotalCounterDisplay" Type="Shamanic.DisplayMode" Scope="User">
+    <Setting Name="PlayerShowOverloadTotal" Type="Shamanic.DisplayMode" Scope="User">
       <Value Profile="(Default)">Card</Value>
     </Setting>
-    <Setting Name="TotemsPlayedCounterDisplay" Type="Shamanic.DisplayMode" Scope="User">
+    <Setting Name="PlayerShowTotemsPlayed" Type="Shamanic.DisplayMode" Scope="User">
       <Value Profile="(Default)">Card</Value>
-    </Setting>
-    <Setting Name="OpponentCountersDisplay" Type="Shamanic.DisplayMode" Scope="User">
-      <Value Profile="(Default)">Never</Value>
     </Setting>
     <Setting Name="PlayerLeft" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">82</Value>
@@ -29,7 +26,7 @@
     <Setting Name="MaxTop" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">94</Value>
     </Setting>
-    <Setting Name="OverloadPlayedCounterDisplay" Type="Shamanic.DisplayMode" Scope="User">
+    <Setting Name="PlayerShowOverloadPlayed" Type="Shamanic.DisplayMode" Scope="User">
       <Value Profile="(Default)">Card</Value>
     </Setting>
     <Setting Name="PlayerOrientation" Type="System.Windows.Controls.Orientation" Scope="User">
@@ -37,6 +34,15 @@
     </Setting>
     <Setting Name="OpponentOrientation" Type="System.Windows.Controls.Orientation" Scope="User">
       <Value Profile="(Default)">Horizontal</Value>
+    </Setting>
+    <Setting Name="OpponentShowTotemsPlayed" Type="Shamanic.DisplayMode" Scope="User">
+      <Value Profile="(Default)">Never</Value>
+    </Setting>
+    <Setting Name="OpponentShowOverloadTotal" Type="Shamanic.DisplayMode" Scope="User">
+      <Value Profile="(Default)">Never</Value>
+    </Setting>
+    <Setting Name="OpponentShowOverloadPlayed" Type="Shamanic.DisplayMode" Scope="User">
+      <Value Profile="(Default)">Never</Value>
     </Setting>
   </Settings>
 </SettingsFile>

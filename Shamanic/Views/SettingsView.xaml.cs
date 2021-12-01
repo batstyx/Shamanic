@@ -39,10 +39,12 @@ namespace Shamanic.Views
         {
             InitializeComponent();
 
-            ComboBoxTotemsPlayed.ItemsSource = TotemsCounterDisplayModes;
-            ComboBoxOverloadPlayed.ItemsSource = OverloadCounterDisplayModes;
-            ComboBoxOverloadTotal.ItemsSource = OverloadCounterDisplayModes;
-            ComboBoxOpponent.ItemsSource = OpponentCounterDisplayModes;
+            ComboBoxPlayerTotemsPlayed.ItemsSource = TotemsCounterDisplayModes;
+            ComboBoxPlayerOverloadPlayed.ItemsSource = OverloadCounterDisplayModes;
+            ComboBoxPlayerOverloadTotal.ItemsSource = OverloadCounterDisplayModes;
+            ComboBoxOpponentTotemsPlayed.ItemsSource = OpponentCounterDisplayModes;
+            ComboBoxOpponentOverloadPlayed.ItemsSource = OpponentCounterDisplayModes;
+            ComboBoxOpponentOverloadTotal.ItemsSource = OpponentCounterDisplayModes;
         }
 
         private void ButtonResetPlayerPosition_Click(object sender, System.Windows.RoutedEventArgs e)

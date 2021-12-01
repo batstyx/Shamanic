@@ -79,9 +79,9 @@
                 <Label Content="{lex:Loc OverloadTotalTitle}" 
                    Style="{StaticResource DescStyle}"
                    ToolTip="{lex:Loc OverloadTotalTooltip}"/>
-                <ComboBox x:Name="ComboBoxOverloadTotal"
+                <ComboBox x:Name="ComboBoxPlayerOverloadTotal"
                       Style="{StaticResource ComboBoxStyle}"
-                      SelectedItem="{Binding OverloadTotalCounterDisplay, 
+                      SelectedItem="{Binding PlayerShowOverloadTotal, 
                     Source={x:Static properties:Settings.Default}}"
                       ToolTip="{lex:Loc OverloadTotalTooltip}">
                     <ComboBox.ItemTemplate>
@@ -96,9 +96,9 @@
                 <Label Content="{lex:Loc OverloadPlayedTitle}" 
                    Style="{StaticResource DescStyle}"
                    ToolTip="{lex:Loc OverloadPlayedTooltip}"/>
-                <ComboBox x:Name="ComboBoxOverloadPlayed"
+                <ComboBox x:Name="ComboBoxPlayerOverloadPlayed"
                       Style="{StaticResource ComboBoxStyle}"
-                      SelectedItem="{Binding OverloadPlayedCounterDisplay, 
+                      SelectedItem="{Binding PlayerShowOverloadPlayed, 
                     Source={x:Static properties:Settings.Default}}"
                       ToolTip="{lex:Loc OverloadPlayedTooltip}">
                     <ComboBox.ItemTemplate>
@@ -113,9 +113,9 @@
                 <Label Content="{lex:Loc TotemsPlayedTitle}"
                    Style="{StaticResource DescStyle}"
                    ToolTip="{lex:Loc TotemsPlayedTooltip}"/>
-                <ComboBox x:Name="ComboBoxTotemsPlayed"
+                <ComboBox x:Name="ComboBoxPlayerTotemsPlayed"
                       Style="{StaticResource ComboBoxStyle}"
-                      SelectedItem="{Binding TotemsPlayedCounterDisplay, 
+                      SelectedItem="{Binding PlayerShowTotemsPlayed, 
                     Source={x:Static properties:Settings.Default}}"
                       ToolTip="{lex:Loc TotemsPlayedTooltip}">
                     <ComboBox.ItemTemplate>
@@ -191,14 +191,48 @@
             <Label Content="{lex:Loc OpponentTitle}"
                    Style="{StaticResource TitleStyle}"/>
             <DockPanel Style="{StaticResource DockPanelStyle}">
-                <Label Content="{lex:Loc OpponentDisplay}" 
-                       Style="{StaticResource DescStyle}"
-                       ToolTip="{lex:Loc OpponentTooltip}"/>
-                <ComboBox x:Name="ComboBoxOpponent"
-                          Style="{StaticResource ComboBoxStyle}"
-                          SelectedItem="{Binding OpponentCountersDisplay, 
+                <Label Content="{lex:Loc OverloadTotalTitle}" 
+                   Style="{StaticResource DescStyle}"
+                   ToolTip="{lex:Loc OverloadTotalTooltip}"/>
+                <ComboBox x:Name="ComboBoxOpponentOverloadTotal"
+                      Style="{StaticResource ComboBoxStyle}"
+                      SelectedItem="{Binding OpponentShowOverloadTotal, 
                     Source={x:Static properties:Settings.Default}}"
-                          ToolTip="{lex:Loc OpponentTooltip}">
+                      ToolTip="{lex:Loc OverloadTotalTooltip}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=., 
+                                Converter={StaticResource EnumDescriptionConverter}}" />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </DockPanel>
+            <DockPanel Style="{StaticResource DockPanelStyle}">
+                <Label Content="{lex:Loc OverloadPlayedTitle}" 
+                   Style="{StaticResource DescStyle}"
+                   ToolTip="{lex:Loc OverloadPlayedTooltip}"/>
+                <ComboBox x:Name="ComboBoxOpponentOverloadPlayed"
+                      Style="{StaticResource ComboBoxStyle}"
+                      SelectedItem="{Binding OpponentShowOverloadPlayed, 
+                    Source={x:Static properties:Settings.Default}}"
+                      ToolTip="{lex:Loc OverloadPlayedTooltip}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=., 
+                                Converter={StaticResource EnumDescriptionConverter}}" />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </DockPanel>
+            <DockPanel Style="{StaticResource DockPanelStyle}">
+                <Label Content="{lex:Loc TotemsPlayedTitle}"
+                   Style="{StaticResource DescStyle}"
+                   ToolTip="{lex:Loc TotemsPlayedTooltip}"/>
+                <ComboBox x:Name="ComboBoxOpponentTotemsPlayed"
+                      Style="{StaticResource ComboBoxStyle}"
+                      SelectedItem="{Binding OpponentShowTotemsPlayed, 
+                    Source={x:Static properties:Settings.Default}}"
+                      ToolTip="{lex:Loc TotemsPlayedTooltip}">
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Path=., 

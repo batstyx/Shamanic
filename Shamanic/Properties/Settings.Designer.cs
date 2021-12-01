@@ -26,36 +26,24 @@ namespace Shamanic.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Card")]
-        public global::Shamanic.DisplayMode OverloadTotalCounterDisplay {
+        public global::Shamanic.DisplayMode PlayerShowOverloadTotal {
             get {
-                return ((global::Shamanic.DisplayMode)(this["OverloadTotalCounterDisplay"]));
+                return ((global::Shamanic.DisplayMode)(this["PlayerShowOverloadTotal"]));
             }
             set {
-                this["OverloadTotalCounterDisplay"] = value;
+                this["PlayerShowOverloadTotal"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Card")]
-        public global::Shamanic.DisplayMode TotemsPlayedCounterDisplay {
+        public global::Shamanic.DisplayMode PlayerShowTotemsPlayed {
             get {
-                return ((global::Shamanic.DisplayMode)(this["TotemsPlayedCounterDisplay"]));
+                return ((global::Shamanic.DisplayMode)(this["PlayerShowTotemsPlayed"]));
             }
             set {
-                this["TotemsPlayedCounterDisplay"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Never")]
-        public global::Shamanic.DisplayMode OpponentCountersDisplay {
-            get {
-                return ((global::Shamanic.DisplayMode)(this["OpponentCountersDisplay"]));
-            }
-            set {
-                this["OpponentCountersDisplay"] = value;
+                this["PlayerShowTotemsPlayed"] = value;
             }
         }
         
@@ -134,12 +122,12 @@ namespace Shamanic.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("Card")]
-        public global::Shamanic.DisplayMode OverloadPlayedCounterDisplay {
+        public global::Shamanic.DisplayMode PlayerShowOverloadPlayed {
             get {
-                return ((global::Shamanic.DisplayMode)(this["OverloadPlayedCounterDisplay"]));
+                return ((global::Shamanic.DisplayMode)(this["PlayerShowOverloadPlayed"]));
             }
             set {
-                this["OverloadPlayedCounterDisplay"] = value;
+                this["PlayerShowOverloadPlayed"] = value;
             }
         }
         
@@ -164,6 +152,42 @@ namespace Shamanic.Properties {
             }
             set {
                 this["OpponentOrientation"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Never")]
+        public global::Shamanic.DisplayMode OpponentShowTotemsPlayed {
+            get {
+                return ((global::Shamanic.DisplayMode)(this["OpponentShowTotemsPlayed"]));
+            }
+            set {
+                this["OpponentShowTotemsPlayed"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Never")]
+        public global::Shamanic.DisplayMode OpponentShowOverloadTotal {
+            get {
+                return ((global::Shamanic.DisplayMode)(this["OpponentShowOverloadTotal"]));
+            }
+            set {
+                this["OpponentShowOverloadTotal"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Never")]
+        public global::Shamanic.DisplayMode OpponentShowOverloadPlayed {
+            get {
+                return ((global::Shamanic.DisplayMode)(this["OpponentShowOverloadPlayed"]));
+            }
+            set {
+                this["OpponentShowOverloadPlayed"] = value;
             }
         }
     }

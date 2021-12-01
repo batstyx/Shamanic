@@ -83,18 +83,17 @@ namespace Shamanic
             PlayerView.SetLocation(Settings.Default.PlayerTop, 100 - Settings.Default.PlayerLeft);
             PlayerView.Orientation = Settings.Default.PlayerOrientation;
 
-            PlayerTracker.OverloadPlayed.Active = Helper.ShowOverloadPlayedCounter || CoreAPI.Game.IsInMenu;
-            PlayerTracker.OverloadTotal.Active = Helper.ShowOverloadTotalCounter || CoreAPI.Game.IsInMenu;
-            PlayerTracker.TotemsPlayed.Active = Helper.ShowTotemsPlayedCounter || CoreAPI.Game.IsInMenu;
+            PlayerTracker.OverloadPlayed.Active = Helper.ShowPlayerOverloadPlayed || CoreAPI.Game.IsInMenu;
+            PlayerTracker.OverloadTotal.Active = Helper.ShowPlayerOverloadTotal || CoreAPI.Game.IsInMenu;
+            PlayerTracker.TotemsPlayed.Active = Helper.ShowPlayerTotemsPlayed || CoreAPI.Game.IsInMenu;
             PlayerView.RefreshVisibility();
 
             OpponentView.SetLocation(Settings.Default.OpponentTop, 100 - Settings.Default.OpponentLeft);
             OpponentView.Orientation = Settings.Default.OpponentOrientation;
 
-            var showOpponentCounters = Helper.ShowOpponentCounters || CoreAPI.Game.IsInMenu;
-            OpponentTracker.OverloadPlayed.Active = showOpponentCounters;
-            OpponentTracker.OverloadTotal.Active = showOpponentCounters;
-            OpponentTracker.TotemsPlayed.Active = showOpponentCounters;
+            OpponentTracker.OverloadPlayed.Active = Helper.ShowOpponentOverloadTotal || CoreAPI.Game.IsInMenu;
+            OpponentTracker.OverloadTotal.Active = Helper.ShowOpponentOverloadTotal || CoreAPI.Game.IsInMenu;
+            OpponentTracker.TotemsPlayed.Active = Helper.ShowOpponentTotemsPlayed || CoreAPI.Game.IsInMenu;
             OpponentView.RefreshVisibility();
         }
 
