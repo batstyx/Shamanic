@@ -91,7 +91,7 @@ namespace Shamanic
             OpponentView.SetLocation(Settings.Default.OpponentTop, 100 - Settings.Default.OpponentLeft);
             OpponentView.Orientation = Settings.Default.OpponentOrientation;
 
-            OpponentTracker.OverloadPlayed.Active = Helper.ShowOpponentOverloadTotal || CoreAPI.Game.IsInMenu;
+            OpponentTracker.OverloadPlayed.Active = Helper.ShowOpponentOverloadPlayed || CoreAPI.Game.IsInMenu;
             OpponentTracker.OverloadTotal.Active = Helper.ShowOpponentOverloadTotal || CoreAPI.Game.IsInMenu;
             OpponentTracker.TotemsPlayed.Active = Helper.ShowOpponentTotemsPlayed || CoreAPI.Game.IsInMenu;
             OpponentView.RefreshVisibility();
