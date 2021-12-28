@@ -41,9 +41,10 @@ namespace Shamanic
         private static EffectTracker CreateTracker(EffectView view)
         {
             var tracker = new EffectTracker();
-            view.Effects.Add(tracker.OverloadTotal);
-            view.Effects.Add(tracker.OverloadPlayed);
-            view.Effects.Add(tracker.TotemsPlayed);
+            foreach (var effect in tracker.Effects)
+            {
+                view.Effects.Add(effect);
+            }
 
             GameEvents.OnGameStart.Add(tracker.GameStart);
             
@@ -83,17 +84,19 @@ namespace Shamanic
             PlayerView.SetLocation(Settings.Default.PlayerTop, 100 - Settings.Default.PlayerLeft);
             PlayerView.Orientation = Settings.Default.PlayerOrientation;
 
-            PlayerTracker.OverloadPlayed.Active = Helper.ShowPlayerCounter(PlayerTracker.OverloadPlayed.Config) || CoreAPI.Game.IsInMenu;
-            PlayerTracker.OverloadTotal.Active = Helper.ShowPlayerCounter(PlayerTracker.OverloadTotal.Config) || CoreAPI.Game.IsInMenu;
-            PlayerTracker.TotemsPlayed.Active = Helper.ShowPlayerCounter(PlayerTracker.TotemsPlayed.Config) || CoreAPI.Game.IsInMenu;
+            foreach (var effect in PlayerTracker.Effects)
+            {
+                effect.Active = Helper.ShowPlayerCounter(effect.Config) || CoreAPI.Game.IsInMenu;
+            }
             PlayerView.RefreshVisibility();
 
             OpponentView.SetLocation(Settings.Default.OpponentTop, 100 - Settings.Default.OpponentLeft);
             OpponentView.Orientation = Settings.Default.OpponentOrientation;
 
-            OpponentTracker.OverloadPlayed.Active = Helper.ShowOpponentCounter(OpponentTracker.OverloadPlayed.Config) || CoreAPI.Game.IsInMenu;
-            OpponentTracker.OverloadTotal.Active = Helper.ShowOpponentCounter(OpponentTracker.OverloadTotal.Config) || CoreAPI.Game.IsInMenu;
-            OpponentTracker.TotemsPlayed.Active = Helper.ShowOpponentCounter(OpponentTracker.TotemsPlayed.Config) || CoreAPI.Game.IsInMenu;
+            foreach (var effect in OpponentTracker.Effects)
+            {
+                effect.Active = Helper.ShowOpponentCounter(effect.Config) || CoreAPI.Game.IsInMenu;
+            }
             OpponentView.RefreshVisibility();
         }
 
