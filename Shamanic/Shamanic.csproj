@@ -74,8 +74,12 @@
   <ItemGroup>
     <Compile Include="DisplayMode.cs" />
     <Compile Include="Effect.cs" />
+    <Compile Include="Effects\OverloadPlayed.cs" />
+    <Compile Include="Effects\OverloadTotal.cs" />
+    <Compile Include="Effects\TotemsPlayed.cs" />
     <Compile Include="EffectTracker.cs" />
     <Compile Include="EventManager.cs" />
+    <Compile Include="IEffectConfig.cs" />
     <Compile Include="Shamanic.cs" />
     <Compile Include="Views\Converters\EnumToBoolConverter.cs" />
     <Compile Include="Views\EffectView.xaml.cs">

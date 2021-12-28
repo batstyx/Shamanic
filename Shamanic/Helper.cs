@@ -23,7 +23,7 @@ namespace Shamanic
             }
             return false;
         }
-        private static bool ShowCounter(DisplayMode mode, string @class, params string[] cardIds)
+        private static bool ShowCounter(string @class, DisplayMode mode, params string[] cardIds)
         {
             switch (mode)
             {
@@ -40,18 +40,9 @@ namespace Shamanic
                     return false;
             }
         }
-
-        public static bool ShowPlayerOverloadTotal => 
-            ShowCounter(Settings.Default.PlayerShowOverloadTotal, Core.Game.Player.Class, SnowfuryGiant);
-        public static bool ShowPlayerOverloadPlayed =>
-            ShowCounter(Settings.Default.PlayerShowOverloadPlayed, Core.Game.Player.Class, ChargedCall, CommandTheElements);
-        public static bool ShowPlayerTotemsPlayed =>
-            ShowCounter(Settings.Default.PlayerShowTotemsPlayed, Core.Game.Player.Class, ThingFromBelow);
-        public static bool ShowOpponentTotemsPlayed =>
-            ShowCounter(Settings.Default.OpponentShowOverloadTotal, Core.Game.Opponent.Class);
-        public static bool ShowOpponentOverloadPlayed =>
-            ShowCounter(Settings.Default.OpponentShowOverloadPlayed, Core.Game.Opponent.Class);
-        public static bool ShowOpponentOverloadTotal =>
-            ShowCounter(Settings.Default.OpponentShowTotemsPlayed, Core.Game.Opponent.Class);
+        public static bool ShowPlayerCounter(IEffectConfig config) =>
+            ShowCounter(Core.Game.Player.Class, config.Player, config.Cards);
+        public static bool ShowOpponentCounter(IEffectConfig config) =>
+           ShowCounter(Core.Game.Opponent.Class, config.Opponent, config.Cards);
     }
 }
