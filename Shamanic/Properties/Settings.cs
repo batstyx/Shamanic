@@ -64,25 +64,32 @@ namespace Shamanic.Properties
 
                     foreach (var setting in actual)
                     {
-                        if (Properties[setting.Name].PropertyType.IsEnum)
-                            this[setting.Name] = Enum.Parse(Properties[setting.Name].PropertyType, setting.Value);
-                        else
-                            this[setting.Name] = Convert.ChangeType(setting.Value, Properties[setting.Name].PropertyType);
-                    }
-                    PropertyChanged += (s, a) => HasChanges = true;
-
+                        try
+                        {
+                            if (Properties[setting.Name].PropertyType.IsEnum)
+                                this[setting.Name] = Enum.Parse(Properties[setting.Name].PropertyType, setting.Value);
+                            else
+                                this[setting.Name] = Convert.ChangeType(setting.Value, Properties[setting.Name].PropertyType);
+                        }
+                        catch (Exception ex)
+                        {
+                            Log.Error($"{setting.Name} loading error");
+                            Log.Error(ex);
+                        }
+                    }                   
                     Log.Info($"{SettingsPath} Loaded");
                 }
                 else
                 {
                     Log.Warn($"{SettingsPath} does not exist");
                 }
-                
             }
             catch (Exception ex)
             {
                 Log.Error(ex);
             }
+            PropertyChanged += (s, a) => HasChanges = true;
+            Log.Info($"Watching {SettingsPath} changes");
         }
 
         private void SettingsSavingEventHandler(object sender, System.ComponentModel.CancelEventArgs e)
@@ -102,7 +109,7 @@ namespace Shamanic.Properties
 
                 e.Cancel = true;
 
-                Log.Info($"{SettingsPath} Loaded");
+                Log.Info($"{SettingsPath} Saved");
             }
             catch (Exception ex)
             {
