@@ -12,7 +12,7 @@ namespace Shamanic
     {
         public static readonly List<IEffectConfig> Configs = new List<IEffectConfig>();
 
-        public IEnumerable<Effect> Effects { get; private set; } = Configs.Select(c => new Effect(c));
+        public IEnumerable<Effect> Effects { get; private set; } = Configs.Select(c => new Effect(c)).ToList();
         private IEnumerable<Effect> PlayList => Effects.Where(e => e.Config.IncrementOn.HasFlag(IncrementOn.Play));
         private IEnumerable<Effect> CreateInPlayList => Effects.Where(e => e.Config.IncrementOn.HasFlag(IncrementOn.CreateInPlay));
 
