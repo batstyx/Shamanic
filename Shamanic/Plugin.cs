@@ -28,10 +28,6 @@ namespace Shamanic
         {
             Settings = Settings.Default;
 
-            EffectTracker.Configs.Add(new OverloadTotal());
-            EffectTracker.Configs.Add(new OverloadPlayed());
-            EffectTracker.Configs.Add(new TotemsPlayed());
-
             MenuItem = new MenuItem { Header = Name };
             MenuItem.Click += (sender, args) => OnButtonPress();
 
@@ -45,6 +41,11 @@ namespace Shamanic
 
             GameEvents.OnOpponentPlay.Add(Events.OnOpponentPlay);
             GameEvents.OnOpponentCreateInPlay.Add(Events.OnOpponentCreateInPlay);
+
+            EffectTracker.AddConfig<OverloadTotal>();
+            EffectTracker.AddConfig<OverloadPlayed>();
+            EffectTracker.AddConfig<TotemsPlayed>();
+            EffectTracker.AddConfig<FrostSpells>();
 
             Shamanic = new Shamanic();
         }
@@ -61,9 +62,7 @@ namespace Shamanic
             Shamanic?.Dispose();
             Shamanic = null;
 
-            EffectTracker.Configs.Clear();
-        }
-
-        
+            EffectTracker.ClearConfig();
+        }        
     }
 }

@@ -190,5 +190,29 @@ namespace Shamanic.Properties {
                 this["OpponentShowOverloadPlayed"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Card")]
+        public global::Shamanic.DisplayMode PlayerShowFrostSpells {
+            get {
+                return ((global::Shamanic.DisplayMode)(this["PlayerShowFrostSpells"]));
+            }
+            set {
+                this["PlayerShowFrostSpells"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Never")]
+        public global::Shamanic.DisplayMode OpponentShowFrostSpells {
+            get {
+                return ((global::Shamanic.DisplayMode)(this["OpponentShowFrostSpells"]));
+            }
+            set {
+                this["OpponentShowFrostSpells"] = value;
+            }
+        }
     }
 }

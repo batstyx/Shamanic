@@ -44,5 +44,11 @@
     <Setting Name="OpponentShowOverloadPlayed" Type="Shamanic.DisplayMode" Scope="User">
       <Value Profile="(Default)">Never</Value>
     </Setting>
+    <Setting Name="PlayerShowFrostSpells" Type="Shamanic.DisplayMode" Scope="User">
+      <Value Profile="(Default)">Card</Value>
+    </Setting>
+    <Setting Name="OpponentShowFrostSpells" Type="Shamanic.DisplayMode" Scope="User">
+      <Value Profile="(Default)">Never</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

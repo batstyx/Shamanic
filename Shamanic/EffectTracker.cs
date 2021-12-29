@@ -10,7 +10,17 @@ namespace Shamanic
 {
     internal class EffectTracker
     {
-        public static readonly List<IEffectConfig> Configs = new List<IEffectConfig>();
+        public static List<IEffectConfig> Configs { get; } = new List<IEffectConfig>();
+
+        public static void AddConfig<T>() where T : IEffectConfig, new()
+        {
+            Configs.Add(new T());
+        }
+
+        public static void ClearConfig()
+        {
+            Configs.Clear();
+        }
 
         public IEnumerable<Effect> Effects { get; private set; } = Configs.Select(c => new Effect(c)).ToList();
         private IEnumerable<Effect> PlayList => Effects.Where(e => e.Config.IncrementOn.HasFlag(IncrementOn.Play));

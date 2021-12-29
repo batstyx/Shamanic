@@ -31,20 +31,12 @@ namespace Shamanic.Views
 
         public static IEnumerable<DisplayMode> DisplayModes = Enum.GetValues(typeof(DisplayMode)).Cast<DisplayMode>();
 
-        public IEnumerable<DisplayMode> TotemsCounterDisplayModes = DisplayModes;
-        public IEnumerable<DisplayMode> OverloadCounterDisplayModes = DisplayModes;
-        public IEnumerable<DisplayMode> OpponentCounterDisplayModes = new[] { DisplayMode.Always, DisplayMode.Shaman, DisplayMode.Class, DisplayMode.Never };
+        public IEnumerable<DisplayMode> PlayerCounterDisplayModes => DisplayModes;
+        public IEnumerable<DisplayMode> OpponentCounterDisplayModes => DisplayModes.Except(new[] { DisplayMode.Card });
 
         public SettingsView()
         {
             InitializeComponent();
-
-            ComboBoxPlayerTotemsPlayed.ItemsSource = TotemsCounterDisplayModes;
-            ComboBoxPlayerOverloadPlayed.ItemsSource = OverloadCounterDisplayModes;
-            ComboBoxPlayerOverloadTotal.ItemsSource = OverloadCounterDisplayModes;
-            ComboBoxOpponentTotemsPlayed.ItemsSource = OpponentCounterDisplayModes;
-            ComboBoxOpponentOverloadPlayed.ItemsSource = OpponentCounterDisplayModes;
-            ComboBoxOpponentOverloadTotal.ItemsSource = OpponentCounterDisplayModes;
         }
 
         private void ButtonResetPlayerPosition_Click(object sender, System.Windows.RoutedEventArgs e)

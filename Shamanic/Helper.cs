@@ -1,4 +1,5 @@
 ﻿using Hearthstone_Deck_Tracker;
+using Hearthstone_Deck_Tracker.Hearthstone;
 using Hearthstone_Deck_Tracker.Hearthstone.Entities;
 using Shamanic.Properties;
 using System.Linq;
@@ -44,5 +45,14 @@ namespace Shamanic
             ShowCounter(Core.Game.Player.Class, config.Player, config.Cards);
         public static bool ShowOpponentCounter(IEffectConfig config) =>
            ShowCounter(Core.Game.Opponent.Class, config.Opponent, config.Cards);
+
+        public static bool MatchSpellSchool(Card card, int spellSchool)
+        {
+            if (card.Type == "Spell" && HearthDb.Cards.All.TryGetValue(card.Id, out HearthDb.Card dbCard))
+            {
+                return dbCard?.SpellSchool == spellSchool;
+            }
+            return false;
+        }
     }
 }

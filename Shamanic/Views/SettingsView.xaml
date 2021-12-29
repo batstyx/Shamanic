@@ -17,7 +17,7 @@
     <ScrollViewer.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <conv:EnumDescriptionConverter x:Key="EnumDescriptionConverter"/>
             <conv:EnumToBoolConverter x:Key="EnumToBoolConverter"/>
@@ -71,238 +71,290 @@
             </Style>
         </ResourceDictionary>
     </ScrollViewer.Resources>
-    <GroupBox Header="{lex:Loc CounterTitle}">
-        <StackPanel Width="400">
-            <Label Content="{lex:Loc PlayerTitle}"
-               Style="{StaticResource TitleStyle}"/>
-            <DockPanel Style="{StaticResource DockPanelStyle}">
-                <Label Content="{lex:Loc OverloadTotalTitle}" 
-                   Style="{StaticResource DescStyle}"
-                   ToolTip="{lex:Loc OverloadTotalTooltip}"/>
-                <ComboBox x:Name="ComboBoxPlayerOverloadTotal"
-                      Style="{StaticResource ComboBoxStyle}"
-                      SelectedItem="{Binding PlayerShowOverloadTotal, 
-                    Source={x:Static properties:Settings.Default}}"
-                      ToolTip="{lex:Loc OverloadTotalTooltip}">
-                    <ComboBox.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Path=., 
-                                Converter={StaticResource EnumDescriptionConverter}}" />
-                        </DataTemplate>
-                    </ComboBox.ItemTemplate>
-                </ComboBox>
-            </DockPanel>
-            <DockPanel Style="{StaticResource DockPanelStyle}">
-                <Label Content="{lex:Loc OverloadPlayedTitle}" 
-                   Style="{StaticResource DescStyle}"
-                   ToolTip="{lex:Loc OverloadPlayedTooltip}"/>
-                <ComboBox x:Name="ComboBoxPlayerOverloadPlayed"
-                      Style="{StaticResource ComboBoxStyle}"
-                      SelectedItem="{Binding PlayerShowOverloadPlayed, 
-                    Source={x:Static properties:Settings.Default}}"
-                      ToolTip="{lex:Loc OverloadPlayedTooltip}">
-                    <ComboBox.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Path=., 
-                                Converter={StaticResource EnumDescriptionConverter}}" />
-                        </DataTemplate>
-                    </ComboBox.ItemTemplate>
-                </ComboBox>
-            </DockPanel>
-            <DockPanel Style="{StaticResource DockPanelStyle}">
-                <Label Content="{lex:Loc TotemsPlayedTitle}"
-                   Style="{StaticResource DescStyle}"
-                   ToolTip="{lex:Loc TotemsPlayedTooltip}"/>
-                <ComboBox x:Name="ComboBoxPlayerTotemsPlayed"
-                      Style="{StaticResource ComboBoxStyle}"
-                      SelectedItem="{Binding PlayerShowTotemsPlayed, 
-                    Source={x:Static properties:Settings.Default}}"
-                      ToolTip="{lex:Loc TotemsPlayedTooltip}">
-                    <ComboBox.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Path=., 
-                                Converter={StaticResource EnumDescriptionConverter}}" />
-                        </DataTemplate>
-                    </ComboBox.ItemTemplate>
-                </ComboBox>
-            </DockPanel>
-            <GroupBox Header="{lex:Loc SettingsPositionTitle}" 
-                      Style="{StaticResource PositionGroupStyle}">
-                <StackPanel>
-                    <DockPanel Style="{StaticResource SliderPanelStyle}">
-                        <Slider x:Name="SliderPlayerLeft" 
-                                VerticalAlignment="Center" 
-                                DockPanel.Dock="Right" 
-                                Width="150"
-                                Value="{Binding PlayerLeft, 
-                            Source={x:Static properties:Settings.Default}}"
-                                ToolTip="{lex:Loc SettingsHorizontalTooltip}" 
-                                Minimum="{Binding MinLeft, 
-                            Source={x:Static properties:Settings.Default}}" />
-                        <Label Content="{lex:Loc SettingsHorizontal}" 
-                               VerticalAlignment="Center" 
-                               DockPanel.Dock="Left" 
-                               ToolTip="{lex:Loc SettingsHorizontalTooltip}" />
-                    </DockPanel>
-                    <DockPanel Style="{StaticResource SliderPanelStyle}">
-                        <Slider x:Name="SliderPlayerTop" 
-                                VerticalAlignment="Center" 
-                                DockPanel.Dock="Right" 
-                                Width="150"
-                                Value="{Binding PlayerTop, 
-                            Source={x:Static properties:Settings.Default}}"
-                                ToolTip="{lex:Loc SettingsVerticalTooltip}" 
-                                Maximum="{Binding MaxTop, 
-                            Source={x:Static properties:Settings.Default}}" />
-                        <Label Content="{lex:Loc SettingsVertical}" 
-                               VerticalAlignment="Center" 
-                               DockPanel.Dock="Left" 
-                               ToolTip="{lex:Loc SettingsVerticalTooltip}" />
-                    </DockPanel>
-                    <DockPanel Style="{StaticResource SliderPanelStyle}" 
-                               ToolTip="{lex:Loc SettingsOrientationDescription}">
-                        <RadioButton IsChecked="{Binding Path=PlayerOrientation,
-                            Source={x:Static properties:Settings.Default}, 
-                            Converter={StaticResource EnumToBoolConverter}, 
-                            ConverterParameter={x:Static Orientation.Horizontal}}" 
-                                     Content="{lex:Loc SettingsOrientationHorizontal}" 
-                                     VerticalAlignment="Center" 
-                                     DockPanel.Dock="Right" 
-                                     Width="120"/>
-                        <RadioButton IsChecked="{Binding Path=PlayerOrientation, 
-                            Source={x:Static properties:Settings.Default}, 
-                            Converter={StaticResource EnumToBoolConverter}, 
-                            ConverterParameter={x:Static Orientation.Vertical}}" 
-                                     Content="{lex:Loc SettingsOrientationVertical}" 
-                                     VerticalAlignment="Center" 
-                                     DockPanel.Dock="Right" 
-                                     Width="120"/>
-                        <Label Content="{lex:Loc SettingsOrientation}" 
-                               VerticalAlignment="Center" 
-                               DockPanel.Dock="Left" />
-                    </DockPanel>
-                    <Separator Style="{StaticResource ResetToDefaultSeparatorStyle}"/>
-                    <Button Name="ButtonResetPlayerPosition" 
-                            Width="150" 
-                            Content="{lex:Loc SettingsPositionResetButton}" 
-                            Click="ButtonResetPlayerPosition_Click" />
-                </StackPanel>
-            </GroupBox>
-            <Label Content="{lex:Loc OpponentTitle}"
-                   Style="{StaticResource TitleStyle}"/>
-            <DockPanel Style="{StaticResource DockPanelStyle}">
-                <Label Content="{lex:Loc OverloadTotalTitle}" 
-                   Style="{StaticResource DescStyle}"
-                   ToolTip="{lex:Loc OverloadTotalTooltip}"/>
-                <ComboBox x:Name="ComboBoxOpponentOverloadTotal"
-                      Style="{StaticResource ComboBoxStyle}"
-                      SelectedItem="{Binding OpponentShowOverloadTotal, 
-                    Source={x:Static properties:Settings.Default}}"
-                      ToolTip="{lex:Loc OverloadTotalTooltip}">
-                    <ComboBox.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Path=., 
-                                Converter={StaticResource EnumDescriptionConverter}}" />
-                        </DataTemplate>
-                    </ComboBox.ItemTemplate>
-                </ComboBox>
-            </DockPanel>
-            <DockPanel Style="{StaticResource DockPanelStyle}">
-                <Label Content="{lex:Loc OverloadPlayedTitle}" 
-                   Style="{StaticResource DescStyle}"
-                   ToolTip="{lex:Loc OverloadPlayedTooltip}"/>
-                <ComboBox x:Name="ComboBoxOpponentOverloadPlayed"
-                      Style="{StaticResource ComboBoxStyle}"
-                      SelectedItem="{Binding OpponentShowOverloadPlayed, 
-                    Source={x:Static properties:Settings.Default}}"
-                      ToolTip="{lex:Loc OverloadPlayedTooltip}">
-                    <ComboBox.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Path=., 
-                                Converter={StaticResource EnumDescriptionConverter}}" />
-                        </DataTemplate>
-                    </ComboBox.ItemTemplate>
-                </ComboBox>
-            </DockPanel>
-            <DockPanel Style="{StaticResource DockPanelStyle}">
-                <Label Content="{lex:Loc TotemsPlayedTitle}"
-                   Style="{StaticResource DescStyle}"
-                   ToolTip="{lex:Loc TotemsPlayedTooltip}"/>
-                <ComboBox x:Name="ComboBoxOpponentTotemsPlayed"
-                      Style="{StaticResource ComboBoxStyle}"
-                      SelectedItem="{Binding OpponentShowTotemsPlayed, 
-                    Source={x:Static properties:Settings.Default}}"
-                      ToolTip="{lex:Loc TotemsPlayedTooltip}">
-                    <ComboBox.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Path=., 
-                                Converter={StaticResource EnumDescriptionConverter}}" />
-                        </DataTemplate>
-                    </ComboBox.ItemTemplate>
-                </ComboBox>
-            </DockPanel>
-            <GroupBox Header="{lex:Loc SettingsPositionTitle}" 
-                      Style="{StaticResource PositionGroupStyle}">
-                <StackPanel>
-                    <DockPanel Style="{StaticResource SliderPanelStyle}">
-                        <Slider x:Name="SliderOpponentLeft" 
-                                VerticalAlignment="Center" 
-                                DockPanel.Dock="Right" 
-                                Width="150"
-                                Value="{Binding OpponentLeft, 
-                            Source={x:Static properties:Settings.Default}}"
-                                ToolTip="{lex:Loc SettingsHorizontalTooltip}"
-                                Minimum="{Binding MinLeft, 
-                            Source={x:Static properties:Settings.Default}}" />
-                        <Label Content="{lex:Loc SettingsHorizontal}" 
-                               VerticalAlignment="Center" 
-                               DockPanel.Dock="Left" 
-                               ToolTip="{lex:Loc SettingsHorizontalTooltip}" />
-                    </DockPanel>
-                    <DockPanel Style="{StaticResource SliderPanelStyle}">
-                        <Slider x:Name="SliderOpponentTop" 
-                                VerticalAlignment="Center" 
-                                DockPanel.Dock="Right" 
-                                Width="150"
-                                Value="{Binding OpponentTop, 
-                            Source={x:Static properties:Settings.Default}}"
-                                ToolTip="{lex:Loc SettingsVerticalTooltip}"
-                                Maximum="{Binding MaxTop, 
-                            Source={x:Static properties:Settings.Default}}" />
-                        <Label Content="{lex:Loc SettingsVertical}" 
-                               VerticalAlignment="Center" 
-                               DockPanel.Dock="Left"
-                               ToolTip="{lex:Loc SettingsVerticalTooltip}" />
-                    </DockPanel>
-                    <DockPanel Style="{StaticResource SliderPanelStyle}" 
-                               ToolTip="{lex:Loc SettingsOrientationDescription}">
-                        <RadioButton IsChecked="{Binding Path=OpponentOrientation, 
-                            Source={x:Static properties:Settings.Default}, 
-                            Converter={StaticResource EnumToBoolConverter}, 
-                            ConverterParameter={x:Static Orientation.Horizontal}}" 
-                                     Content="{lex:Loc SettingsOrientationHorizontal}" 
-                                     VerticalAlignment="Center" 
-                                     DockPanel.Dock="Right" 
-                                     Width="120"/>
-                        <RadioButton IsChecked="{Binding Path=OpponentOrientation, 
-                            Source={x:Static properties:Settings.Default}, 
-                            Converter={StaticResource EnumToBoolConverter}, 
-                            ConverterParameter={x:Static Orientation.Vertical}}" 
-                                     Content="{lex:Loc SettingsOrientationVertical}" 
-                                     VerticalAlignment="Center" 
-                                     DockPanel.Dock="Right" 
-                                     Width="120"/>
-                        <Label Content="{lex:Loc SettingsOrientation}" 
-                               VerticalAlignment="Center" 
-                               DockPanel.Dock="Left" />
-                    </DockPanel>
-                    <Separator Style="{StaticResource ResetToDefaultSeparatorStyle}"/>
-                    <Button Name="ButtonResetOpponentPosition" 
-                            Width="150" 
-                            Content="{lex:Loc SettingsPositionResetButton}" 
-                            Click="ButtonResetOpponentPosition_Click" />
-                </StackPanel>
-            </GroupBox>
-        </StackPanel>
-    </GroupBox>
+    <StackPanel Width="400">
+        <GroupBox Header="{lex:Loc PlayerTitle}">
+            <StackPanel>
+                <DockPanel Style="{StaticResource DockPanelStyle}">
+                    <Label Content="{lex:Loc OverloadTotalTitle}" 
+                           Style="{StaticResource DescStyle}"
+                           ToolTip="{lex:Loc OverloadTotalTooltip}"/>
+                    <ComboBox x:Name="ComboBoxPlayerOverloadTotal"
+                              Style="{StaticResource ComboBoxStyle}"
+                              ItemsSource="{Binding PlayerCounterDisplayModes,
+                                RelativeSource={RelativeSource AncestorType=ScrollViewer}}"
+                              SelectedItem="{Binding PlayerShowOverloadTotal, 
+                                Source={x:Static properties:Settings.Default}}"
+                              ToolTip="{lex:Loc OverloadTotalTooltip}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=., 
+                                            Converter={StaticResource EnumDescriptionConverter}}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </DockPanel>
+                <DockPanel Style="{StaticResource DockPanelStyle}">
+                    <Label Content="{lex:Loc OverloadPlayedTitle}" 
+                           Style="{StaticResource DescStyle}"
+                           ToolTip="{lex:Loc OverloadPlayedTooltip}"/>
+                    <ComboBox x:Name="ComboBoxPlayerOverloadPlayed"
+                              Style="{StaticResource ComboBoxStyle}"
+                              ItemsSource="{Binding PlayerCounterDisplayModes,
+                                RelativeSource={RelativeSource AncestorType=ScrollViewer}}"
+                              SelectedItem="{Binding PlayerShowOverloadPlayed, 
+                                Source={x:Static properties:Settings.Default}}"
+                              ToolTip="{lex:Loc OverloadPlayedTooltip}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=., 
+                                            Converter={StaticResource EnumDescriptionConverter}}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </DockPanel>
+                <DockPanel Style="{StaticResource DockPanelStyle}">
+                    <Label Content="{lex:Loc TotemsPlayedTitle}"
+                           Style="{StaticResource DescStyle}"
+                           ToolTip="{lex:Loc TotemsPlayedTooltip}"/>
+                    <ComboBox x:Name="ComboBoxPlayerTotemsPlayed"
+                              Style="{StaticResource ComboBoxStyle}"
+                              ItemsSource="{Binding PlayerCounterDisplayModes,
+                                RelativeSource={RelativeSource AncestorType=ScrollViewer}}"
+                              SelectedItem="{Binding PlayerShowTotemsPlayed, 
+                                Source={x:Static properties:Settings.Default}}"
+                              ToolTip="{lex:Loc TotemsPlayedTooltip}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=., 
+                                            Converter={StaticResource EnumDescriptionConverter}}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </DockPanel>
+                <DockPanel Style="{StaticResource DockPanelStyle}">
+                    <Label Content="{lex:Loc FrostSpellsTitle}"
+                           Style="{StaticResource DescStyle}"
+                           ToolTip="{lex:Loc FrostSpellsTooltip}"/>
+                    <ComboBox x:Name="ComboBoxPlayerFrostSpells"
+                              Style="{StaticResource ComboBoxStyle}"
+                              ItemsSource="{Binding PlayerCounterDisplayModes,
+                                RelativeSource={RelativeSource AncestorType=ScrollViewer}}"
+                              SelectedItem="{Binding PlayerShowFrostSpells, 
+                                Source={x:Static properties:Settings.Default}}"
+                              ToolTip="{lex:Loc FrostSpellsTooltip}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=., 
+                                            Converter={StaticResource EnumDescriptionConverter}}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </DockPanel>
+                <GroupBox Header="{lex:Loc SettingsPositionTitle}" 
+                    Style="{StaticResource PositionGroupStyle}">
+                    <StackPanel>
+                        <DockPanel Style="{StaticResource SliderPanelStyle}">
+                            <Slider x:Name="SliderPlayerLeft" 
+                                    VerticalAlignment="Center" 
+                                    DockPanel.Dock="Right" 
+                                    Width="150"
+                                    Value="{Binding PlayerLeft, 
+                                        Source={x:Static properties:Settings.Default}}"
+                                    ToolTip="{lex:Loc SettingsHorizontalTooltip}" 
+                                    Minimum="{Binding MinLeft, 
+                                        Source={x:Static properties:Settings.Default}}"/>
+                            <Label Content="{lex:Loc SettingsHorizontal}" 
+                                   VerticalAlignment="Center" 
+                                   DockPanel.Dock="Left" 
+                                   ToolTip="{lex:Loc SettingsHorizontalTooltip}"/>
+                        </DockPanel>
+                        <DockPanel Style="{StaticResource SliderPanelStyle}">
+                            <Slider x:Name="SliderPlayerTop" 
+                                    VerticalAlignment="Center" 
+                                    DockPanel.Dock="Right" 
+                                    Width="150"
+                                    Value="{Binding PlayerTop, 
+                                        Source={x:Static properties:Settings.Default}}"
+                                    ToolTip="{lex:Loc SettingsVerticalTooltip}" 
+                                    Maximum="{Binding MaxTop, 
+                                        Source={x:Static properties:Settings.Default}}"/>
+                            <Label Content="{lex:Loc SettingsVertical}" 
+                                   VerticalAlignment="Center" 
+                                   DockPanel.Dock="Left" 
+                                   ToolTip="{lex:Loc SettingsVerticalTooltip}"/>
+                        </DockPanel>
+                        <DockPanel Style="{StaticResource SliderPanelStyle}" 
+                            ToolTip="{lex:Loc SettingsOrientationDescription}">
+                            <RadioButton IsChecked="{Binding Path=PlayerOrientation,
+                                            Source={x:Static properties:Settings.Default}, 
+                                            Converter={StaticResource EnumToBoolConverter}, 
+                                            ConverterParameter={x:Static Orientation.Horizontal}}" 
+                                         Content="{lex:Loc SettingsOrientationHorizontal}" 
+                                         VerticalAlignment="Center" 
+                                         DockPanel.Dock="Right" 
+                                         Width="120"/>
+                            <RadioButton IsChecked="{Binding Path=PlayerOrientation, 
+                                            Source={x:Static properties:Settings.Default}, 
+                                            Converter={StaticResource EnumToBoolConverter}, 
+                                            ConverterParameter={x:Static Orientation.Vertical}}" 
+                                         Content="{lex:Loc SettingsOrientationVertical}" 
+                                         VerticalAlignment="Center" 
+                                         DockPanel.Dock="Right" 
+                                         Width="120"/>
+                            <Label Content="{lex:Loc SettingsOrientation}" 
+                                   VerticalAlignment="Center" 
+                                   DockPanel.Dock="Left"/>
+                        </DockPanel>
+                        <Separator Style="{StaticResource ResetToDefaultSeparatorStyle}"/>
+                        <Button Name="ButtonResetPlayerPosition" 
+                                Width="150" 
+                                Content="{lex:Loc SettingsPositionResetButton}" 
+                                Click="ButtonResetPlayerPosition_Click"/>
+                    </StackPanel>
+                </GroupBox>
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="{lex:Loc OpponentTitle}">
+            <StackPanel>
+                <DockPanel Style="{StaticResource DockPanelStyle}">
+                    <Label Content="{lex:Loc OverloadTotalTitle}" 
+                           Style="{StaticResource DescStyle}"
+                           ToolTip="{lex:Loc OverloadTotalTooltip}"/>
+                    <ComboBox x:Name="ComboBoxOpponentOverloadTotal"
+                              Style="{StaticResource ComboBoxStyle}"
+                              ItemsSource="{Binding OpponentCounterDisplayModes,
+                                RelativeSource={RelativeSource AncestorType=ScrollViewer}}"
+                              SelectedItem="{Binding OpponentShowOverloadTotal, 
+                                Source={x:Static properties:Settings.Default}}"
+                              ToolTip="{lex:Loc OverloadTotalTooltip}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=., 
+                                            Converter={StaticResource EnumDescriptionConverter}}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </DockPanel>
+                <DockPanel Style="{StaticResource DockPanelStyle}">
+                    <Label Content="{lex:Loc OverloadPlayedTitle}" 
+                           Style="{StaticResource DescStyle}"
+                           ToolTip="{lex:Loc OverloadPlayedTooltip}"/>
+                    <ComboBox x:Name="ComboBoxOpponentOverloadPlayed"
+                              Style="{StaticResource ComboBoxStyle}"
+                              ItemsSource="{Binding OpponentCounterDisplayModes,
+                                RelativeSource={RelativeSource AncestorType=ScrollViewer}}"
+                              SelectedItem="{Binding OpponentShowOverloadPlayed, 
+                                Source={x:Static properties:Settings.Default}}"
+                              ToolTip="{lex:Loc OverloadPlayedTooltip}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=., 
+                                            Converter={StaticResource EnumDescriptionConverter}}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </DockPanel>
+                <DockPanel Style="{StaticResource DockPanelStyle}">
+                    <Label Content="{lex:Loc TotemsPlayedTitle}"
+                           Style="{StaticResource DescStyle}"
+                           ToolTip="{lex:Loc TotemsPlayedTooltip}"/>
+                    <ComboBox x:Name="ComboBoxOpponentTotemsPlayed"
+                              Style="{StaticResource ComboBoxStyle}"
+                              ItemsSource="{Binding OpponentCounterDisplayModes,
+                                RelativeSource={RelativeSource AncestorType=ScrollViewer}}"
+                              SelectedItem="{Binding OpponentShowTotemsPlayed, 
+                                Source={x:Static properties:Settings.Default}}"
+                              ToolTip="{lex:Loc TotemsPlayedTooltip}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=., 
+                                            Converter={StaticResource EnumDescriptionConverter}}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </DockPanel>
+                <DockPanel Style="{StaticResource DockPanelStyle}">
+                    <Label Content="{lex:Loc FrostSpellsTitle}"
+                           Style="{StaticResource DescStyle}"
+                           ToolTip="{lex:Loc FrostSpellsTooltip}"/>
+                    <ComboBox x:Name="ComboBoxOpponentFrostSpells"
+                              Style="{StaticResource ComboBoxStyle}"
+                              ItemsSource="{Binding OpponentCounterDisplayModes,
+                                RelativeSource={RelativeSource AncestorType=ScrollViewer}}"
+                              SelectedItem="{Binding OpponentShowFrostSpells, 
+                                Source={x:Static properties:Settings.Default}}"
+                              ToolTip="{lex:Loc FrostSpellsTooltip}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=., 
+                                            Converter={StaticResource EnumDescriptionConverter}}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </DockPanel>
+                <GroupBox Header="{lex:Loc SettingsPositionTitle}" 
+                    Style="{StaticResource PositionGroupStyle}">
+                    <StackPanel>
+                        <DockPanel Style="{StaticResource SliderPanelStyle}">
+                            <Slider x:Name="SliderOpponentLeft" 
+                                    VerticalAlignment="Center" 
+                                    DockPanel.Dock="Right" 
+                                    Width="150"
+                                    Value="{Binding OpponentLeft, 
+                                        Source={x:Static properties:Settings.Default}}"
+                                    ToolTip="{lex:Loc SettingsHorizontalTooltip}"
+                                    Minimum="{Binding MinLeft, 
+                                        Source={x:Static properties:Settings.Default}}"/>
+                            <Label Content="{lex:Loc SettingsHorizontal}" 
+                                   VerticalAlignment="Center" 
+                                   DockPanel.Dock="Left" 
+                                   ToolTip="{lex:Loc SettingsHorizontalTooltip}"/>
+                        </DockPanel>
+                        <DockPanel Style="{StaticResource SliderPanelStyle}">
+                            <Slider x:Name="SliderOpponentTop" 
+                                    VerticalAlignment="Center" 
+                                    DockPanel.Dock="Right" 
+                                    Width="150"
+                                    Value="{Binding OpponentTop, 
+                                        Source={x:Static properties:Settings.Default}}"
+                                    ToolTip="{lex:Loc SettingsVerticalTooltip}"
+                                    Maximum="{Binding MaxTop, 
+                                        Source={x:Static properties:Settings.Default}}"/>
+                            <Label Content="{lex:Loc SettingsVertical}" 
+                                   VerticalAlignment="Center" 
+                                   DockPanel.Dock="Left"
+                                   ToolTip="{lex:Loc SettingsVerticalTooltip}"/>
+                        </DockPanel>
+                        <DockPanel Style="{StaticResource SliderPanelStyle}" 
+                                   ToolTip="{lex:Loc SettingsOrientationDescription}">
+                            <RadioButton IsChecked="{Binding Path=OpponentOrientation,
+                                            Source={x:Static properties:Settings.Default}, 
+                                            Converter={StaticResource EnumToBoolConverter}, 
+                                            ConverterParameter={x:Static Orientation.Horizontal}}" 
+                                         Content="{lex:Loc SettingsOrientationHorizontal}" 
+                                         VerticalAlignment="Center" 
+                                         DockPanel.Dock="Right" 
+                                         Width="120"/>
+                            <RadioButton IsChecked="{Binding Path=OpponentOrientation, 
+                                            Source={x:Static properties:Settings.Default}, 
+                                            Converter={StaticResource EnumToBoolConverter}, 
+                                            ConverterParameter={x:Static Orientation.Vertical}}" 
+                                         Content="{lex:Loc SettingsOrientationVertical}" 
+                                         VerticalAlignment="Center" 
+                                         DockPanel.Dock="Right" 
+                                         Width="120"/>
+                            <Label Content="{lex:Loc SettingsOrientation}" 
+                                   VerticalAlignment="Center" 
+                                   DockPanel.Dock="Left"/>
+                        </DockPanel>
+                        <Separator Style="{StaticResource ResetToDefaultSeparatorStyle}"/>
+                        <Button Name="ButtonResetOpponentPosition" 
+                                Width="150" 
+                                Content="{lex:Loc SettingsPositionResetButton}" 
+                                Click="ButtonResetOpponentPosition_Click"/>
+                    </StackPanel>
+                </GroupBox>
+            </StackPanel>
+        </GroupBox>
+    </StackPanel>
 </ScrollViewer>

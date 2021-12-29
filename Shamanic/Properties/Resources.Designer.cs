@@ -115,6 +115,38 @@ namespace Shamanic.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Frost
+        ///Spells.
+        /// </summary>
+        internal static string FrostSpellsEffectName {
+            get {
+                return ResourceManager.GetString("FrostSpellsEffectName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Frost Spells.
+        /// </summary>
+        internal static string FrostSpellsTitle {
+            get {
+                return ResourceManager.GetString("FrostSpellsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Always - Display Frost Spells cast for all games playing as any class.
+        ///Shaman - Display Frost Spells cast when playing as Shaman.
+        ///Class - Display Frost Spells cast when playing as Shaman/Rogue/Priest.
+        ///Card - Display Frost Spells cast for &apos;Bearon Gla&apos;shear&apos;.
+        ///Never - Do not display..
+        /// </summary>
+        internal static string FrostSpellsTooltip {
+            get {
+                return ResourceManager.GetString("FrostSpellsTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Overload &amp; Totems.
         /// </summary>
         internal static string OpponentDisplay {

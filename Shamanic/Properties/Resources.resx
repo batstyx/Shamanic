@@ -135,6 +135,20 @@
   <data name="DisplayModeShaman" xml:space="preserve">
     <value>Shaman</value>
   </data>
+  <data name="FrostSpellsEffectName" xml:space="preserve">
+    <value>Frost
+Spells</value>
+  </data>
+  <data name="FrostSpellsTitle" xml:space="preserve">
+    <value>Frost Spells</value>
+  </data>
+  <data name="FrostSpellsTooltip" xml:space="preserve">
+    <value>Always - Display Frost Spells cast for all games playing as any class.
+Shaman - Display Frost Spells cast when playing as Shaman.
+Class - Display Frost Spells cast when playing as Shaman/Rogue/Priest.
+Card - Display Frost Spells cast for 'Bearon Gla'shear'.
+Never - Do not display.</value>
+  </data>
   <data name="OpponentDisplay" xml:space="preserve">
     <value>Overload &amp; Totems</value>
   </data>

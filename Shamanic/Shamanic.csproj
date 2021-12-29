@@ -74,6 +74,7 @@
   <ItemGroup>
     <Compile Include="DisplayMode.cs" />
     <Compile Include="Effect.cs" />
+    <Compile Include="Effects\FrostSpells.cs" />
     <Compile Include="Effects\OverloadPlayed.cs" />
     <Compile Include="Effects\OverloadTotal.cs" />
     <Compile Include="Effects\TotemsPlayed.cs" />
