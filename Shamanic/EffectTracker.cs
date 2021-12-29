@@ -9,20 +9,12 @@ using System.Linq;
 namespace Shamanic
 {
     internal class EffectTracker
-    {        
-        public IEnumerable<Effect> Effects { get; private set; }
+    {
+        public static readonly List<IEffectConfig> Configs = new List<IEffectConfig>();
+
+        public IEnumerable<Effect> Effects { get; private set; } = Configs.Select(c => new Effect(c));
         private IEnumerable<Effect> PlayList => Effects.Where(e => e.Config.IncrementOn.HasFlag(IncrementOn.Play));
         private IEnumerable<Effect> CreateInPlayList => Effects.Where(e => e.Config.IncrementOn.HasFlag(IncrementOn.CreateInPlay));
-
-        public EffectTracker()
-        {
-            Effects = new List<Effect>
-            {
-                new Effect(new OverloadTotal()),
-                new Effect(new OverloadPlayed()),
-                new Effect(new TotemsPlayed()),
-            };
-        }
 
         internal void GameStart()
         {
