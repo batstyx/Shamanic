@@ -4,32 +4,23 @@ using Shamanic.Effects;
 using Shamanic.Properties;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Shamanic
 {
     internal class EffectTracker
     {        
         public IEnumerable<Effect> Effects { get; private set; }
-
-        private IEnumerable<Effect> PlayList => Effects;
-        private IEnumerable<Effect> CreateInPlayList;
-
-        private Effect OverloadTotal { get; } = new Effect(new OverloadTotal());
-        private Effect OverloadPlayed { get; } = new Effect(new OverloadPlayed());
-        private Effect TotemsPlayed { get; } = new Effect(new TotemsPlayed());
+        private IEnumerable<Effect> PlayList => Effects.Where(e => e.Config.IncrementOn.HasFlag(IncrementOn.Play));
+        private IEnumerable<Effect> CreateInPlayList => Effects.Where(e => e.Config.IncrementOn.HasFlag(IncrementOn.CreateInPlay));
 
         public EffectTracker()
         {
             Effects = new List<Effect>
             {
-                OverloadTotal,
-                OverloadPlayed,
-                TotemsPlayed,
-            };
-
-            CreateInPlayList = new List<Effect>()
-            {
-                TotemsPlayed,
+                new Effect(new OverloadTotal()),
+                new Effect(new OverloadPlayed()),
+                new Effect(new TotemsPlayed()),
             };
         }
 

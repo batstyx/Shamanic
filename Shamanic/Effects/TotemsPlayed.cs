@@ -19,5 +19,6 @@ namespace Shamanic.Effects
             card => card.Type == "Minion" 
             && (card.Race == "Totem" || card.Race == "All");
         public Func<Card, int> Increment => card => 1;
+        public IncrementOn IncrementOn => IncrementOn.Play | IncrementOn.CreateInPlay;
     }
 }

@@ -15,5 +15,6 @@ namespace Shamanic
         DisplayMode Opponent { get; }
         Predicate<Card> Condition { get; }
         Func<Card, int> Increment { get; }
+        IncrementOn IncrementOn { get; }
     }
 }

@@ -17,5 +17,6 @@ namespace Shamanic.Effects
         public DisplayMode Opponent => Settings.Default.OpponentShowOverloadPlayed;
         public Predicate<Card> Condition => card => card.Overload > 0;
         public Func<Card, int> Increment => card => 1;
+        public IncrementOn IncrementOn => IncrementOn.Play;
     }
 }
