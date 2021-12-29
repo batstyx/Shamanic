@@ -9,11 +9,17 @@ namespace Shamanic
 {
     public class Effect : INotifyPropertyChanged
     {
+        public IEffectConfig Config { get; }
         public string Name { get; }
         public int Count { get => _Count; private set => SetProperty(ref _Count, value); }
         private int _Count;
         public bool Active { get => _Active; set => SetProperty(ref _Active, value); }
         private bool _Active;
+
+        public Effect(IEffectConfig config) : this(config.Name)
+        {
+            Config = config;
+        }
 
         public Effect(string name)
         {

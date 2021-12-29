@@ -1,5 +1,6 @@
 ﻿using Hearthstone_Deck_Tracker.API;
 using Hearthstone_Deck_Tracker.Plugins;
+using Shamanic.Effects;
 using Shamanic.Properties;
 using Shamanic.Views;
 using System;
@@ -26,6 +27,10 @@ namespace Shamanic
         public void OnLoad()
         {
             Settings = Settings.Default;
+
+            EffectTracker.Configs.Add(new OverloadTotal());
+            EffectTracker.Configs.Add(new OverloadPlayed());
+            EffectTracker.Configs.Add(new TotemsPlayed());
 
             MenuItem = new MenuItem { Header = Name };
             MenuItem.Click += (sender, args) => OnButtonPress();
@@ -55,6 +60,8 @@ namespace Shamanic
 
             Shamanic?.Dispose();
             Shamanic = null;
+
+            EffectTracker.Configs.Clear();
         }
 
         

@@ -1,18 +1,20 @@
 ﻿using Hearthstone_Deck_Tracker.Hearthstone;
 using Hearthstone_Deck_Tracker.Utility.Logging;
+using Shamanic.Effects;
 using Shamanic.Properties;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Shamanic
 {
     internal class EffectTracker
-    {        
-        public Effect OverloadTotal { get; } = new Effect(Strings.Get("OverloadTotalEffectName"));
-        public Effect OverloadPlayed { get; } = new Effect(Strings.Get("OverloadPlayedEffectName"));
-        public Effect TotemsPlayed { get; } = new Effect(Strings.Get("TotemsPlayedEffectName"));
+    {
+        public static readonly List<IEffectConfig> Configs = new List<IEffectConfig>();
 
-        private bool IncrementOverload(Card card) => card.Overload > 0;
-        private bool IncrementTotems(Card card) => card.Type == "Minion" && (card.Race == "Totem" || card.Race == "All");
+        public IEnumerable<Effect> Effects { get; private set; } = Configs.Select(c => new Effect(c));
+        private IEnumerable<Effect> PlayList => Effects.Where(e => e.Config.IncrementOn.HasFlag(IncrementOn.Play));
+        private IEnumerable<Effect> CreateInPlayList => Effects.Where(e => e.Config.IncrementOn.HasFlag(IncrementOn.CreateInPlay));
 
         internal void GameStart()
         {
@@ -21,9 +23,10 @@ namespace Shamanic
 #if DEBUG
                 Log.Info("Shamanic GameStart");
 #endif
-                OverloadTotal.Reset();
-                OverloadPlayed.Reset();
-                TotemsPlayed.Reset();
+                foreach (var effect in Effects)
+                {
+                    effect.Reset();
+                }
             }
             catch (Exception ex)
             {
@@ -37,17 +40,9 @@ namespace Shamanic
             try
             {
 #if DEBUG
-                Log.Info($"Shamanic Play Card: {card?.Type}+{card?.Race}+{card?.Overload}"); 
+                Log.Info($"Shamanic Play Card: {card?.Type}+{card?.Race}+{card?.Overload}");
 #endif
-
-                if (IncrementTotems(card))
-                    TotemsPlayed.Increment();
-
-                if (IncrementOverload(card))
-                {
-                    OverloadPlayed.Increment();
-                    OverloadTotal.Increment(card.Overload);
-                }
+                IncrementEffects(PlayList, card);
             }
             catch (Exception ex)
             {
@@ -62,13 +57,22 @@ namespace Shamanic
 #if DEBUG
                 Log.Info($"Shamanic CreateInPlay Card: {card?.Type}+{card?.Race}+{card?.Overload}");
 #endif
-
-                if (IncrementTotems(card))
-                    TotemsPlayed.Increment();
+                IncrementEffects(CreateInPlayList, card);
             }
             catch (Exception ex)
             {
                 Log.Error(ex);
+            }
+        }
+
+        internal void IncrementEffects(IEnumerable<Effect> effects, Card card)
+        {
+            foreach (var effect in effects)
+            {
+                if (effect.Config.Condition(card))
+                {
+                    effect.Increment(effect.Config.Increment(card));
+                }
             }
         }
     }
