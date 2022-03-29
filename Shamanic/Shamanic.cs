@@ -16,7 +16,12 @@ namespace Shamanic
 
         private EffectTracker PlayerTracker;
         private EffectTracker OpponentTracker;
-        
+
+        private Visibility Visibility => (CoreAPI.Game.IsInMenu && Config.Instance.HideInMenu)
+                || CoreAPI.Game.IsBattlegroundsMatch
+                || CoreAPI.Game.IsMercenariesMatch
+                ? Visibility.Collapsed : Visibility.Visible;
+
         public Shamanic()
         {
             PlayerView = CreateView();
@@ -65,21 +70,20 @@ namespace Shamanic
 
         internal void GameStart()
         {
-            PlayerView.Visibility = Visibility.Visible;
-            OpponentView.Visibility = Visibility.Visible;
+            //Visibility = Visibility.Visible;
         }
 
         internal void InMenu()
         {
-            PlayerView.Visibility = Config.Instance.HideInMenu ? Visibility.Hidden : Visibility.Visible;
-            OpponentView.Visibility = Config.Instance.HideInMenu ? Visibility.Hidden : Visibility.Visible;
+            //Visibility = Config.Instance.HideInMenu ? Visibility.Hidden : Visibility.Visible;
         }
 
         internal void Refresh()
         {
-            if (!(PlayerView.Visibility == Visibility.Visible || OpponentView.Visibility == Visibility.Visible)) return;
+            PlayerView.Visibility = Visibility;
+            OpponentView.Visibility = Visibility;
 
-            if (CoreAPI.Game.IsInMenu & Config.Instance.HideInMenu) return;
+            if (!(PlayerView.Visibility == Visibility.Visible || OpponentView.Visibility == Visibility.Visible)) return;
 
             PlayerView.SetLocation(Settings.Default.PlayerTop, 100 - Settings.Default.PlayerLeft);
             PlayerView.Orientation = Settings.Default.PlayerOrientation;
