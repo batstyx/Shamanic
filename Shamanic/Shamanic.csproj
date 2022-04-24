@@ -149,6 +149,6 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>if "$(ConfigurationName)" == "Debug" copy /Y "$(TargetPath)" "%25appdata%25\HearthstoneDeckTracker\Plugins\$(TargetName).dll"
-if "$(ConfigurationName)" == "Debug" copy /Y "$(TargetDir)$(TargetName).pdb" "%25appdata%25\HearthstoneDeckTracker\Plugins\$(TargetName).pdb"</PostBuildEvent>
+:: if "$(ConfigurationName)" == "Debug" copy /Y "$(TargetDir)$(TargetName).pdb" "%25appdata%25\HearthstoneDeckTracker\Plugins\$(TargetName).pdb"</PostBuildEvent>
   </PropertyGroup>
 </Project>
