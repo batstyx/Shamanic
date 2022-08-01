@@ -12,7 +12,7 @@ namespace Shamanic.Effects
     internal class TotemsPlayed : IEffectConfig
     {
         public string Name => Strings.Get("TotemsPlayedEffectName");
-        public string[] Cards => new string[] { ThingFromBelow };
+        public string[] Cards => new string[] { ThingFromBelow, Gigantotem };
         public DisplayMode Player => Settings.Default.PlayerShowTotemsPlayed;
         public DisplayMode Opponent => Settings.Default.OpponentShowTotemsPlayed;
         public Predicate<Card> Condition => 
