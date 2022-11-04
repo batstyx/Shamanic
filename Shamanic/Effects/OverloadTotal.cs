@@ -12,7 +12,7 @@ namespace Shamanic.Effects
     internal class OverloadTotal : IEffectConfig
     {
         public string Name => Strings.Get("OverloadTotalEffectName");
-        public string[] Cards => new string[] { SnowfuryGiant };
+        public string[] Cards => new string[] { SnowfuryGiantCore };
         public DisplayMode Player => Settings.Default.PlayerShowOverloadTotal;
         public DisplayMode Opponent => Settings.Default.OpponentShowOverloadTotal;
         public Predicate<Card> Condition => card => card.Overload > 0;
