@@ -10,7 +10,7 @@ namespace Shamanic
     public interface IEffectConfig
     {
         string Name { get; }
-        string[] Cards { get; }
+        string[] ShowOnCardIds { get; }
         DisplayMode Player { get; }
         DisplayMode Opponent { get; }
         Predicate<Card> Condition { get; }
