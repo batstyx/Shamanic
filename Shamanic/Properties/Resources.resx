@@ -149,6 +149,9 @@ Class - Display Frost Spells cast when playing as Shaman/Rogue/Priest.
 Card - Display Frost Spells cast for 'Bearon Gla'shear'.
 Never - Do not display.</value>
   </data>
+  <data name="Opacity" xml:space="preserve">
+    <value>Opacity</value>
+  </data>
   <data name="OpponentDisplay" xml:space="preserve">
     <value>Overload &amp; Totems</value>
   </data>
@@ -201,6 +204,12 @@ Never - Do not display.</value>
 Mainly for use with the Shaman cards 'Thing from Below' and 'Snowfury Giant'.
 
 **WARNING** Disabling the plugin during a game will reset the counters.</value>
+  </data>
+  <data name="Scale" xml:space="preserve">
+    <value>Scale</value>
+  </data>
+  <data name="SettingsDisplayTitle" xml:space="preserve">
+    <value>Display</value>
   </data>
   <data name="SettingsHorizontal" xml:space="preserve">
     <value>Horizontal</value>

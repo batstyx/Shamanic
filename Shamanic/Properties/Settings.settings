@@ -50,5 +50,17 @@
     <Setting Name="OpponentShowFrostSpells" Type="Shamanic.DisplayMode" Scope="User">
       <Value Profile="(Default)">Never</Value>
     </Setting>
+    <Setting Name="PlayerScale" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
+    <Setting Name="OpponentScale" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
+    <Setting Name="PlayerOpacity" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
+    <Setting Name="OpponentOpacity" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">100</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

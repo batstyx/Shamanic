@@ -1,11 +1,14 @@
 ﻿using Hearthstone_Deck_Tracker;
 using Hearthstone_Deck_Tracker.Enums;
+using Hearthstone_Deck_Tracker.Utility;
 using MahApps.Metro.Controls;
 using Shamanic.Properties;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace Shamanic.Views
 {
@@ -34,19 +37,37 @@ namespace Shamanic.Views
         public IEnumerable<DisplayMode> PlayerCounterDisplayModes => DisplayModes;
         public IEnumerable<DisplayMode> OpponentCounterDisplayModes => DisplayModes.Except(new[] { DisplayMode.Card });
 
+        public class GroupHeader
+        {
+            public string Title { get; set; }
+            public ICommand Command { get; set; }
+        }
+        public GroupHeader PlayerPositionGroup { get; } = new GroupHeader
+        {
+            Title = Strings.Get(nameof(Properties.Resources.SettingsPositionTitle)),
+            Command = new Command(Settings.Default.ResetPlayerPosition)
+        };
+        public GroupHeader OpponentPositionGroup { get; } = new GroupHeader
+        {
+            Title = Strings.Get(nameof(Properties.Resources.SettingsPositionTitle)),
+            Command = new Command(Settings.Default.ResetOpponentPosition)
+        };
+        public GroupHeader PlayerDisplayGroup { get; } = new GroupHeader
+        {
+            Title = Strings.Get(nameof(Properties.Resources.SettingsDisplayTitle)),
+            Command = new Command(Settings.Default.ResetPlayerDisplay)
+        };
+        public GroupHeader OpponentDisplayGroup { get; } = new GroupHeader
+        {
+            Title = Strings.Get(nameof(Properties.Resources.SettingsDisplayTitle)),
+            Command = new Command(Settings.Default.ResetOpponentDisplay)
+        };
+
+
+
         public SettingsView()
         {
             InitializeComponent();
-        }
-
-        private void ButtonResetPlayerPosition_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            Settings.Default.ResetPlayerPosition();
-        }
-
-        private void ButtonResetOpponentPosition_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            Settings.Default.ResetOpponentPosition();
         }
     }
 }

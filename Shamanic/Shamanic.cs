@@ -4,7 +4,7 @@ using Shamanic.Properties;
 using Shamanic.Views;
 using System;
 using System.Windows;
-using static Shamanic.Views.EffectView;
+using System.Windows.Media;
 using CoreAPI = Hearthstone_Deck_Tracker.API.Core;
 
 namespace Shamanic
@@ -34,6 +34,9 @@ namespace Shamanic
 
             Plugin.Events.GameStart += GameStart;
             Plugin.Events.InMenu += InMenu;
+
+            Settings.Default.PropertyChanged += SettingsChanged;
+            SettingsChanged(null, null);
         }
 
         private static EffectView CreateView()
@@ -86,7 +89,6 @@ namespace Shamanic
             if (!(PlayerView.Visibility == Visibility.Visible || OpponentView.Visibility == Visibility.Visible)) return;
 
             PlayerView.SetLocation(Settings.Default.PlayerTop, 100 - Settings.Default.PlayerLeft);
-            PlayerView.Orientation = Settings.Default.PlayerOrientation;
 
             foreach (var effect in PlayerTracker.Effects)
             {
@@ -95,13 +97,52 @@ namespace Shamanic
             PlayerView.RefreshVisibility();
 
             OpponentView.SetLocation(Settings.Default.OpponentTop, 100 - Settings.Default.OpponentLeft);
-            OpponentView.Orientation = Settings.Default.OpponentOrientation;
 
             foreach (var effect in OpponentTracker.Effects)
             {
                 effect.Active = Helper.ShowOpponentCounter(effect.Config) || CoreAPI.Game.IsInMenu;
             }
             OpponentView.RefreshVisibility();
+        }
+
+        private void RefreshPlayerOpacity() => PlayerView.Opacity = Settings.Default.PlayerOpacity / 100;
+        private void RefreshPlayerScale() => PlayerView.RenderTransform = new ScaleTransform(Settings.Default.PlayerScale / 100, Settings.Default.PlayerScale / 100);
+        private void RefreshPlayerOrientation() => PlayerView.Orientation = Settings.Default.PlayerOrientation;
+        private void RefreshOpponentOpacity() => OpponentView.Opacity = Settings.Default.OpponentOpacity / 100;
+        private void RefreshOpponentScale() => OpponentView.RenderTransform = new ScaleTransform(Settings.Default.OpponentScale / 100, Settings.Default.OpponentScale / 100);
+        private void RefreshOpponentOrientation() => OpponentView.Orientation = Settings.Default.OpponentOrientation;
+        private void SettingsChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            var property = e?.PropertyName;
+            switch (property)
+            {
+                case nameof(Settings.Default.PlayerOpacity):
+                    RefreshPlayerOpacity();
+                    break;
+                case nameof(Settings.Default.PlayerScale):
+                    RefreshPlayerScale();
+                    break;
+                case nameof(Settings.Default.PlayerOrientation):
+                    RefreshPlayerOrientation();
+                    break;
+                case nameof(Settings.Default.OpponentOpacity):
+                    RefreshOpponentOpacity();
+                    break;
+                case nameof(Settings.Default.OpponentScale):
+                    RefreshOpponentScale();
+                    break;
+                case nameof(Settings.Default.OpponentOrientation):
+                    RefreshOpponentOrientation();
+                    break;
+                default:
+                    RefreshPlayerOpacity();
+                    RefreshPlayerScale();
+                    RefreshPlayerOrientation();
+                    RefreshOpponentOpacity();
+                    RefreshOpponentScale();
+                    RefreshOpponentOrientation();
+                    break;
+            }
         }
 
         public void Dispose()
