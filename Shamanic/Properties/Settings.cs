@@ -22,8 +22,15 @@ namespace Shamanic.Properties
 
     public sealed partial class Settings
     {
-        private static readonly string Filename = Path.ChangeExtension(LibraryInfo.Name, ".xml");
-        internal static string DataDir => Config.Instance.DataDir;
+        private static class Old
+        {
+            internal static readonly string Filename = Path.ChangeExtension(LibraryInfo.Name, ".xml");
+            internal static string DataDir => Config.Instance.DataDir;
+            internal static string SettingsPath => Path.Combine(DataDir, Filename);
+        }
+
+        private static readonly string Filename = Path.ChangeExtension(nameof(Settings), ".xml");
+        internal static string DataDir => Path.Combine(Config.Instance.DataDir, $"Plugin.{LibraryInfo.Name}");
         private static string SettingsPath => Path.Combine(DataDir, Filename);
 
         public bool HasChanges { get; private set; }
@@ -41,6 +48,18 @@ namespace Shamanic.Properties
             try
             {
                 Log.Debug($"Loading {SettingsPath}");
+
+                if (!Directory.Exists(DataDir))
+                    Directory.CreateDirectory(DataDir);
+
+                try
+                {
+                    if (!File.Exists(SettingsPath) || File.Exists(Old.SettingsPath))
+                    {
+                        File.Move(Old.SettingsPath, SettingsPath);
+                    }
+                }
+                catch (Exception ex) { Log.Error(ex); }
 
                 if (File.Exists(SettingsPath))
                 {
