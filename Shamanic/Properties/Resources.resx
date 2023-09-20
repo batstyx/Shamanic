@@ -255,7 +255,7 @@ Played</value>
     <value>Always - Display Totems for all games playing as any class.
 Shaman - Display Totems when playing as Shaman.
 Class - Display Totems when playing as Shaman/Rogue/Priest.
-Card - Display Totems for 'Thing from Below'.
+Card - Display Totems for 'Thing from Below' and/or 'Gigantotem'.
 Never - Do not display.</value>
   </data>
 </root>

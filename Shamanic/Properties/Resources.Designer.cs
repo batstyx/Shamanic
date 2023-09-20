@@ -420,7 +420,7 @@ namespace Shamanic.Properties {
         ///   Looks up a localized string similar to Always - Display Totems for all games playing as any class.
         ///Shaman - Display Totems when playing as Shaman.
         ///Class - Display Totems when playing as Shaman/Rogue/Priest.
-        ///Card - Display Totems for &apos;Thing from Below&apos;.
+        ///Card - Display Totems for &apos;Thing from Below&apos; and/or &apos;Gigantotem&apos;.
         ///Never - Do not display..
         /// </summary>
         internal static string TotemsPlayedTooltip {
