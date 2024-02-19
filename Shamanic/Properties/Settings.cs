@@ -3,6 +3,7 @@ using Hearthstone_Deck_Tracker.Utility.Logging;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 
@@ -72,7 +73,7 @@ namespace Shamanic.Properties
                             if (Properties[setting.Name].PropertyType.IsEnum)
                                 this[setting.Name] = Enum.Parse(Properties[setting.Name].PropertyType, setting.Value);
                             else
-                                this[setting.Name] = Convert.ChangeType(setting.Value, Properties[setting.Name].PropertyType);
+                                this[setting.Name] = Convert.ChangeType(setting.Value, Properties[setting.Name].PropertyType, CultureInfo.InvariantCulture);
                         }
                         catch (Exception ex)
                         {
@@ -102,8 +103,8 @@ namespace Shamanic.Properties
                 Log.Debug($"Saving {SettingsPath}");
 
                 var saveFormat = PropertyValues.Cast<SettingsPropertyValue>()
-                    .Where(p => p.SerializedValue.ToString() != p.Property.DefaultValue.ToString())
-                    .Select(p => new Setting(p.Name, p.SerializedValue.ToString()))
+                    .Where(p => !p.SerializedValue.Equals(p.Property.DefaultValue))
+                    .Select(p => new Setting(p.Name, string.Format(CultureInfo.InvariantCulture, "{0}", p.SerializedValue)))
                     .ToList();
 
                 XmlManager<List<Setting>>.Save(SettingsPath, saveFormat);
