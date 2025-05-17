@@ -1,6 +1,4 @@
-[![Latest Release](https://img.shields.io/github/release-pre/batstyx/Shamanic.svg)](https://github.com/batstyx/Shamanic/releases)
-
-[![Build Status](https://github.com/batstyx/shamanic/actions/workflows/build-and-release-on-push-or-pull-request.yml/badge.svg)](https://github.com/batstyx/Shamanic/actions/workflows/build-and-release-on-push-or-pull-request.yml)
+## This Plugin Is Deprecated
 
 # Shamanic
 
